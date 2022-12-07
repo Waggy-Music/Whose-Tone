@@ -1,0 +1,44 @@
+<%= form_with model: user,method: :patch do |f| %>
+    <% if user.listener? %>
+      <div class="edit_listener">
+        <p>名前<%= f.text_field:name %></p>
+        <p>ニックネーム<%= f.text_field:nick_name %></p>
+        <p>アカウント種別<%=user.role %>※変更したい場合は別アカウントを新規作成</p>
+        <p>プロフィール<%= f.text_area:profile %></p>
+        <p>リンク<%= f.text_field:links %></p>
+        <p>タグ<%= f.text_field:tag %></p>
+        <%= f.submit"保存する",class: 'btn btn-success' %>
+        <%=link_to"BACK",user_path, class: 'btn btn-secondary' %>
+</div>
+    <% end %>
+    
+    <% if user.shop? %>
+      <div class="edit_shop">
+        <p>名称<%= f.text_field:name %></p>
+        <p>アカウント種別<%=user.role %>※変更したい場合は別アカウントを新規作成</p>
+        <p>プロフィール<%= f.text_area:profile %></p>
+        <p>住所<%= f.text_field:address %></p>
+        <p>店舗スタイル<%= f.text_field:shop_style %></p>
+        <p>定休日<%= f.text_field:holidays %></p>
+        <p>リンク<%= f.text_field:links %></p>
+        <p>タグ<%= f.text_field:tag %></p>
+        <%= f.submit"保存する",class: 'btn btn-success' %>
+        <%=link_to"BACK",user_path, class: 'btn btn-secondary' %>
+</div>
+    <% end %>
+    
+    <% if user.maker? %>
+      <div class="edit_maker">
+        <p>名称<%= f.text_field:name %></p>
+        <p>アカウント種別<%=user.role %>※変更したい場合は別アカウントを新規作成</p>
+        <p>プロフィール<%= f.text_area:profile %></p>
+        <p>住所<%= f.text_field:address %></p>
+        <p>店舗スタイル<%= f.text_field:shop_style %></p>
+        <p>定休日<%= f.text_field:holidays %></p>
+        <p>リンク<%= f.text_field:links %></p>
+        <p>タグ<%= f.text_field:tag %></p>
+        <%= f.submit"保存する",class: 'btn btn-success' %>
+        <%=link_to"BACK",user_path, class: 'btn btn-secondary' %>
+</div>
+    <% end %>
+<% end %>

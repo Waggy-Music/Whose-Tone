@@ -4,14 +4,10 @@
   <%= render "public/shared/error_messages", resource: resource %>
   
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name%>
+    <%= f.label :select %><br />
+    <%= f.select :role, User.roles.keys.map{|k| [I18n.t("enums.user.role.#{k}"), k]} %>
   </div>
   
-  <div class="field">
-    <%= f.label :nick_name %><br />
-    <%= f.text_field :nick_name%>
-  </div>
   
   <div class="field">
     <%= f.label :email %><br />

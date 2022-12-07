@@ -1,0 +1,52 @@
+<div class="container  my-5"style="text-align:center;">
+  <div class="row">
+    <div class="col-4">
+      
+    </div>
+    <div class="col-4">
+      <h2>マイページ</h2>
+      <% if @user.artist? %>
+        <table class="table table-bordered">
+          <tr>
+            <td class="table-secondary">ニックネーム</td>
+            <td><%= @user.nick_name%></td>
+          </tr>
+          <tr>
+            <td class="table-secondary">アカウント種別</td>
+            <td><%= @user.role_i18n%></td>
+          </tr>
+          <tr>
+            <td class="table-secondary">プロフィール</td>
+            <td><%= @user.profile%></td>
+          </tr>
+          <tr>
+            <td class="table-secondary">活動エリア</td>
+            <td><%= @user.action_range%></td>
+          </tr>
+          <tr>
+            <td class="table-secondary">活動スタイル</td>
+            <td><%= @user.action_style%></td>
+          </tr>
+          <tr>
+            <td class="table-secondary">リンク</td>
+            <td><%= @user.links%></td>
+          </tr>
+          <tr>
+            <td class="table-secondary">タグ</td>
+            <td><%= @user.tag%></td>
+          </tr>
+          <tr>
+            <td><%=link_to "編集", edit_user_path, class: 'btn btn-success' %></td>
+            <td><%=link_to "TOPに戻る", root_path, class: 'btn btn-primary'%></td>
+          </tr>
+  </table>
+      <% else %>
+      <%= render 'show',user: @user%>
+      <% end %>
+    </div>
+    <div class="col-4">
+      
+    </div>
+    
+  </div>
+</div>
