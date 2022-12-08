@@ -8,5 +8,7 @@
    <% if user_signed_in?%>
    <%= link_to "マイページ", user_path(@user.id), class: 'btn btn-primary'%>
    <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: 'btn btn-danger'%>
+   <%= link_to "新規投稿", new_post_path(@user.id),method: :get, class: 'btn btn-primary'%>
+   <%= link_to "投稿一覧",posts_path,method: :get, class:"btn btn-primary"%>
    <% end %>
  </div>

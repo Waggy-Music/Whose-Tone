@@ -1,0 +1,11 @@
+<div class="container  my-5"style="text-align:center;">
+  <p>posts/index</p>
+  
+  <% @posts.each do |post| %>
+  
+  <p><%= post.body%></p>
+  <%= link_to "編集する",edit_post_path(post.id)%>
+  
+  <% end %>
+
+</div>

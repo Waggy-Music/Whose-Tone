@@ -1,0 +1,12 @@
+<div class="container  my-5"style="text-align:center;">
+<h2>新規投稿</h2>
+
+<%= form_with model: @post, method: :post do |f|%>
+<h4>画像</h4>
+<p><%= f.file_field :image, accept: "image/*" %></p>
+<p>本文<%= f.text_area:body%></p>
+<p>タグ<%= f.text_field:tag%></p>
+<p><%= f.submit "投稿する", class:'btn btn-success'%></p>
+
+<% end %>
+</div>

@@ -9,7 +9,9 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <header>
+    <div style="text-align:center;"><%=link_to "WhoseTone", root_path, class: 'btn btn-primary'%></div>
+  </header>
   <body>
     <%= render 'layouts/flash'%>
     <%= yield %>

@@ -1,0 +1,12 @@
+
+<div class="container  my-5"style="text-align:center;">
+  <h2>admin/post/index</h2>
+  
+  <% @posts.each do |post| %>
+  
+  <p><%= post.body%></p>
+  <%= link_to "編集する",edit_post_path(post.id)%>
+  
+  <% end %>
+
+</div>
