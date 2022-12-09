@@ -6,7 +6,9 @@ class Public::PostsController < ApplicationController
   def create
     @post=Post.new(post_params)
     @post.user_id=current_user.id
+     
     if @post.save
+     #binding.pry
       flash[:notice]="投稿が完了しました。"
       redirect_to post_path(@post.id)
     else
@@ -35,12 +37,13 @@ class Public::PostsController < ApplicationController
   
   def index
     @posts=Post.all
+    
   end
   
   private
   
   def post_params
-    params.require(:post).permit(:body, :tag)
+    params.require(:post).permit(:body, :tag,:image)
   end
 
   

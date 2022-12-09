@@ -10,8 +10,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header>
-    <div style="text-align:center;"><%=link_to "WhoseTone", root_path, class: 'btn btn-primary'%></div>
+    <%= render 'layouts/header'%>
   </header>
+  
   <body>
     <%= render 'layouts/flash'%>
     <%= yield %>

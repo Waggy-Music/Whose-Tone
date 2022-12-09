@@ -1,8 +1,8 @@
-<div class="card m-1"style="text-align:center;">
+<div class=""style="text-align:center;">
 <h2>PostEdit</h2>
 <%= form_with model: @post, method: :patch do |f| %>
 
-<p>画像<%= f.file_field :image, accept: "image/*" %></p>
+<p>画像<%= f.file_field :image, accept: "image/*", multiple: true %></p>
 <p>本文<%= f.text_area:body %></p>
 <p>タグ<%= f.text_field:tag %></p>
 <p><%= f.submit "保存する"%></p>

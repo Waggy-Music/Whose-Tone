@@ -15,6 +15,10 @@ class Public::UsersController < ApplicationController
     redirect_to user_path
   end
   
+  def index
+    @users=User.all
+  end
+  
   
   private
   

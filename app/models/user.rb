@@ -7,7 +7,7 @@ class User < ApplicationRecord
          has_many :posts, dependent: :destroy
          
          enum role: {listener:0 ,artist:1,shop:2,maker:3}
-         
+         has_one_attached :image
          
   def get_image(width,height)
     if image.attached?

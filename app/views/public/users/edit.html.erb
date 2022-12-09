@@ -3,14 +3,14 @@
   <%= form_with model: @user,method: :patch do |f| %>
     <% if @user.artist? %>
     <div class="edit_artist">
-        <p>名前<%= f.text_field:name %></p>
-        <p>ニックネーム<%= f.text_field:nick_name %></p>
+        <p>名前<%= f.text_field:name,placeholder:"氏名※非表示になります" %></p>
+        <p>ニックネーム<%= f.text_field:nick_name ,placeholder:"サイトで表示されます" %></p>
         <p>アカウント種別<%=@user.role %>※変更したい場合は別アカウントを新規作成</p>
-        <p>プロフィール<%= f.text_area:profile %></p>
-        <p>活動エリア<%= f.text_field:action_range %></p>
-        <p>活動スタイル<%= f.text_field:action_style %></p>
-        <p>リンク<%= f.text_field:links %></p>
-        <p>タグ<%= f.text_field:tag %></p>
+        <p>プロフィール<%= f.text_area:profile ,placeholder:"自分の紹介、どんな活動をしているか等" %></p>
+        <p>活動エリア<%= f.text_field:action_range,placeholder:"関東エリア、大阪全域"  %></p>
+        <p>活動スタイル<%= f.text_field:action_style,placeholder:"弾き方り、バンド"  %></p>
+        <p>リンク<%= f.text_field:links ,placeholder:"ご自身のサイトURL" %></p>
+        <p>タグ<%= f.text_field:tag ,placeholder:"ギター、ロック、ピアノ" %></p>
         <%= f.submit"保存する",class: 'btn btn-success' %>
         <%=link_to"BACK",user_path, class: 'btn btn-secondary' %>
     </div>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   root to: 'public/homes#top'
+  get 'about' => 'public/homes#about'
   get '/admin' => 'admin/homes#top'
   
   devise_for :users, skip: [:passwords], 
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
   get 'posts'=>'public/posts#index'
   get 'posts/:id/edit' => 'public/posts#edit'
   patch 'posts/:id' => 'public/posts#update'
+  get 'users'=> 'public/users#index'
   resources :posts
   # end
 

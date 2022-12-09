@@ -1,0 +1,6 @@
+  <% if post.image.attached? %>
+    <% post.image.each do |image| %>
+      <%= image_tag image.variant(resize: '500x500') %>
+      
+    <% end %>
+  <% end %>

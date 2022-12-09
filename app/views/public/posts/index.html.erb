@@ -2,7 +2,7 @@
   <p>posts/index</p>
   
   <% @posts.each do |post| %>
-  
+  <%= render 'image',post: post%> 
   <p><%= post.body%></p>
   <%= link_to "編集する",edit_post_path(post.id)%>
   

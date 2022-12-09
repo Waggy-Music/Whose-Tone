@@ -1,5 +1,6 @@
 <div class="container  my-5"style="text-align:center;">
   <p>投稿内容</p>
+  <%= render 'image',post: @post%> 
  <p><%= @post.body %></p>
  <p><%= @post.tag %></p>
  <%= link_to "投稿一覧",posts_path,method: :get, class:"btn btn-primary"%>
