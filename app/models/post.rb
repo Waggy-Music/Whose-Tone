@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   
   belongs_to :user
   #belongs_to :admin
-  has_many_attached :image
+  has_many_attached :images
   
   def get_image(width,height)
     if image.attached?

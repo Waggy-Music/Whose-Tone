@@ -12,7 +12,7 @@ class Admin::PostsController < ApplicationController
       redirect_to admin_post_path(@post.id)
     else
       flash[:danger]="保存に失敗しました。"
-      @post=Post.find(post_params)
+      #@post=Post.find(post_params)
       render:new
     end
   end
@@ -25,6 +25,12 @@ class Admin::PostsController < ApplicationController
    redirect_to admin_post_path(@post.id)
   end
   
+  def destroy
+    @post=Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
+   flash[:notice]="投稿を削除しました。"
+  end
     
   def show
     @post=Post.find(params[:id])

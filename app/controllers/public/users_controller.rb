@@ -24,6 +24,6 @@ class Public::UsersController < ApplicationController
   
   def user_params
     params.require(:user).permit(:name,:nick_name,:address,:profile,:action_range,:action_style,
-    :links,:tag,:holidays,:shop_style,:role,:is_deleted)
+    :links,:tag,:holidays,:shop_style,:role,:is_deleted,:image)
   end
 end

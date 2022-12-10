@@ -1,4 +1,4 @@
-<div class="container  my-5"style="text-align:center;">
+<div style="text-align:center;">
   <p>投稿内容</p>
   <%= render 'image',post: @post%> 
  <p><%= @post.body %></p>
@@ -6,3 +6,4 @@
  <%= link_to "投稿一覧",posts_path,method: :get, class:"btn btn-primary"%>
  <%= link_to "編集する",edit_post_path(@post.id),class: "btn btn-secondary"%>
 </div>
+

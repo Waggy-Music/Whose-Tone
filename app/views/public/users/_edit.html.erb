@@ -1,6 +1,7 @@
 <%= form_with model: user,method: :patch do |f| %>
     <% if user.listener? %>
       <div class="edit_listener">
+        <p>プロフィール画像<%=f.file_field:image%></p>
         <p>名前<%= f.text_field:name %></p>
         <p>ニックネーム<%= f.text_field:nick_name %></p>
         <p>アカウント種別<%=user.role %>※変更したい場合は別アカウントを新規作成</p>
@@ -14,6 +15,7 @@
     
     <% if user.shop? %>
       <div class="edit_shop">
+        <p>プロフィール画像<%=f.file_field:image%></p>
         <p>名称<%= f.text_field:name %></p>
         <p>アカウント種別<%=user.role %>※変更したい場合は別アカウントを新規作成</p>
         <p>プロフィール<%= f.text_area:profile %></p>
@@ -29,6 +31,7 @@
     
     <% if user.maker? %>
       <div class="edit_maker">
+        <p>プロフィール画像<%=f.file_field:image%></p>
         <p>名称<%= f.text_field:name %></p>
         <p>アカウント種別<%=user.role %>※変更したい場合は別アカウントを新規作成</p>
         <p>プロフィール<%= f.text_area:profile %></p>

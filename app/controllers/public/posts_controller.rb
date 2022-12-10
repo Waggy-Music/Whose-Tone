@@ -26,6 +26,13 @@ class Public::PostsController < ApplicationController
    redirect_to post_path(@post.id)
   end
   
+  def destroy
+    @post=Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
+   flash[:notice]="投稿を削除しました。"
+  end
+  
     
   def show
     @post=Post.find(params[:id])
@@ -43,7 +50,7 @@ class Public::PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:body, :tag,:image)
+    params.require(:post).permit(:body, :tag,images:[])
   end
 
   

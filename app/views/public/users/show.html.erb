@@ -1,12 +1,19 @@
 <div class="container  my-5"style="text-align:center;">
   <div class="row">
-    <div class="col-4">
+    <div class="col-md-4">
       
     </div>
-    <div class="col-4">
-      <h2>マイページ</h2>
+    <div class="col-md-4">
+      <h2 class="table-secondary">マイページ</h2>
+      <image>
+          <% if @user.image.attached? %>
+            <%= image_tag @user.image, size: "100x100" %>
+          <% else %>
+            <%= image_tag 'no_image', size: "100x100" %>
+          <% end %>
+      </image>
       <% if @user.artist? %>
-        <table class="table table-bordered">
+        <table class="table table-bordered mt-2">
           <tr>
             <td class="table-secondary">ニックネーム</td>
             <td><%= @user.nick_name%></td>
@@ -35,16 +42,16 @@
             <td class="table-secondary">タグ</td>
             <td><%= @user.tag%></td>
           </tr>
-          <tr>
-            <td><%=link_to "編集", edit_user_path, class: 'btn btn-success' %></td>
-            <td><%=link_to "TOPに戻る", root_path, class: 'btn btn-primary'%></td>
-          </tr>
+
   </table>
       <% else %>
       <%= render 'show',user: @user%>
       <% end %>
+            
+            <td><%=link_to "編集", edit_user_path, class: 'btn btn-success' %></td>
+            <td><%=link_to "TOPに戻る", root_path, class: 'btn btn-primary'%></td>
     </div>
-    <div class="col-4">
+    <div class="col-md-4">
       
     </div>
     
