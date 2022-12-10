@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ArtistTest < ActiveSupport::TestCase
+class Admin::HomesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

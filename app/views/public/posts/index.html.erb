@@ -1,0 +1,25 @@
+  <div class="cotainer my-5 mx-1">
+    <div class="row">
+      <div class="col-md-4">
+        
+      </div>
+      
+      <div class="col-md-4" style="text-align:center;">
+        <p>posts/index</p>
+        
+        <% @posts.each do |post| %>
+        <div class="card mb-2 shadow p-3 mb-5 bg-body rounded">
+        <p><%= post.body%></p>
+        <%= render 'image',post: post%>
+        <%= link_to "編集する",edit_post_path(post.id)%>
+        <%= link_to "削除する",post_path(post.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
+        </div>
+        <% end %>
+      </div>  
+     
+      <div class="col-md-4">
+      
+      </div>
+
+    </div>    
+</div> 

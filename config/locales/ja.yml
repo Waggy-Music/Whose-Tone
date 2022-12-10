@@ -1,0 +1,8 @@
+ja:
+  enums:
+    user:
+      role:
+        artist: 'アーティスト'
+        listener: 'リスナー'
+        shop: 'ショップ'
+        maker:  'メーカー'

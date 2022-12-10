@@ -4,5 +4,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-         enum role: {artist:0 ,listener:1,shop:2,maker:3}
+         has_many :posts, dependent: :destroy
+         
+         enum role: {listener:0 ,artist:1,shop:2,maker:3}
+         has_one_attached :image
+         
+  def get_image(width,height)
+    if image.attached?
+      image.variant(resize_to_limit: [width, height]).processed
+    else
+     file_path = Rails.root.join('app/assets/images/no_image.jpg')
+     image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/jpg')
+    end
+  end
+  
 end

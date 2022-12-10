@@ -59,3 +59,4 @@ gem 'devise'
 
 gem "enum_help"
 gem 'cancancan'
+gem 'pry-rails'
