@@ -1,9 +1,9 @@
 <div class="container  my-5"style="text-align:center;">
-<h2>admin/post/new</h2>
+<h2>admin新規投稿</h2>
 
-<%= form_with model: @post,url: admin_posts_path(@post.id), method: :post do |f|%>
+<%= form_with model: @information,url: admin_informations_path, method: :post do |f|%>
 <h4>画像</h4>
-<p><%= f.file_field :image, accept: "image/*" %></p>
+<p><%= f.file_field :images, multiple: true,accept: "image/*" %></p>
 <p>本文<%= f.text_area:body%></p>
 <p>タグ<%= f.text_field:tag%></p>
 <p><%= f.submit "投稿する", class:'btn btn-success'%></p>

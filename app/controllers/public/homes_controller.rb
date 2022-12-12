@@ -1,6 +1,6 @@
 class Public::HomesController < ApplicationController
   def top
     @user=current_user
-    @post=Post.new
+    @posts=Post.all
   end
 end

@@ -6,7 +6,7 @@
    <% end %>
    <% if admin_signed_in?%>
    <%= link_to "ログアウト", destroy_admin_session_path,method: :delete, class: 'btn btn-danger'%>
-   <%= link_to "新規投稿", new_admin_post_path,method: :get, class: 'btn btn-primary'%>
-   <%= link_to "投稿一覧",admin_posts_path,method: :get, class:"btn btn-primary"%>
+   <%= link_to "新規投稿", new_admin_information_path,method: :get, class: 'btn btn-primary'%>
+   <%= link_to "投稿一覧",admin_informations_path,method: :get, class:"btn btn-primary"%>
    <% end %>
  </div>

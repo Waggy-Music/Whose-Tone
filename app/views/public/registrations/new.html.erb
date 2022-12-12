@@ -1,47 +1,42 @@
-<div style="text-align:center;">
-<h2>Sign up</h2>
-
-<%= form_with model: @user , url: user_registration_path do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
-  
-  <div class="field">
-    <%= f.label :select %><br />
-    <%= f.select :role, User.roles.keys.map{|k| [I18n.t("enums.user.role.#{k}"), k]} %>
-  </div>
-  
-  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "public/shared/links" %>
-    <div class="border col-7">
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+<div class="container my-5 mx-1">
+    <div class="row">
+      <div class="col-md-3">
+        
       </div>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      
+      <div class="border bg-light col-md-7 p-2">
+        <h2>Sign up</h2>
+        <%= form_with model: @user , url: user_registration_path do |f| %>
+        <%= render "public/shared/error_messages", resource: resource %>
+        <div class="field">
+          <%= f.label :select,"属性選択", class: "form-label" %> <br><em>※あとで変更ができません。間違いのないようにご注意ください。</em><br />
+          <%= f.select :role, User.roles.keys.map{|k| [I18n.t("enums.user.role.#{k}"), k]}, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :email, "メールアドレス", class: "form-label" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "name@example.com" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :password,"パスワード", class:"form-label"%>
+          <% if @minimum_password_length %>
+          <% end %><br />
+          <%= f.password_field :password,autofocus: true, autocomplete: "new-password" , class: "form-control", placeholder: "６文字以上" %>
+        </div>
+      　<div class="mb-3">
+             <%= f.label :password_confirmation,"パスワード確認", class:"form-label" %><br />
+          <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "new-password", class: "form-control", placeholder: "６文字以上" %>
+        </div>
+      
+        <div class="actions ">
+          <%= f.submit "Sign up",class:'btn btn-info col-6 mx-auto' %>
+          <%= render "public/shared/links",class:'btn btn-secondary col-6' %>
+        </div>
+      <% end %>
       </div>
+      
+      <div class="col-md-2">
+        
+      </div>
+      
     </div>
 </div>

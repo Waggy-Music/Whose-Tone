@@ -3,10 +3,29 @@
 
 <%= form_with model: @post,url: posts_path(@post), method: :post do |f|%>
 <h4>画像</h4>
-<p><%= f.file_field :images, multiple: true,accept: "image/*" %></p>
+<p><%= f.file_field :images, multiple: true,accept: "image/*" ,id: "image"%></p>
+<div ><%=image_tag "",class:"img-square"%></div>
 <p>本文<%= f.text_area:body%></p>
 <p>タグ<%= f.text_field:tag%></p>
 <p><%= f.submit "投稿する", class:'btn btn-success'%></p>
 
-<% end %>
+
 </div>
+
+
+<% end %>
+<script>
+$(function() {
+    $('#image').on('change', function() {
+        var selectedFile = this.files[0];
+        var fileReader = new FileReader();
+
+        fileReader.onload = function(event) {
+            var loadedImageUri = event.target.result;
+             $('.img-square').attr('src', loadedImageUri);
+        };
+
+        fileReader.readAsDataURL(selectedFile);
+    });
+});
+</script>

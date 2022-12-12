@@ -1,14 +1,33 @@
-<h1>homes/top</h1>
-
- <div class="offset-2">
-   <% unless user_signed_in?%>
-   <%= link_to "ログイン", new_user_session_path, class: 'btn btn-secondary' %>
-   <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-success' %>
-   <% end %>
-   <% if user_signed_in?%>
-   <%= link_to "マイページ", user_path(@user.id), class: 'btn btn-primary'%>
-   <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: 'btn btn-danger'%>
-   <%= link_to "新規投稿", new_post_path(@post),method: :get, class: 'btn btn-primary'%>
-   <%= link_to "投稿一覧",posts_path,method: :get, class:"btn btn-primary"%>
-   <% end %>
+<div class="container m-2">
+  <div class="row">
+    <div class="col-md-4 bg-light">
+     <% unless user_signed_in?%>
+     <div><%= link_to "ログイン", new_user_session_path, class: 'btn btn-secondary' %></div>
+     <div><%= link_to "新規登録", new_user_registration_path, class: 'btn btn-success' %></div>
+     <% end %>
+     <% if user_signed_in?%>
+     <div><%= link_to "マイページ", user_path(@user.id), class: 'btn btn-primary'%></div>
+     <div><%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: 'btn btn-danger'%></div>
+     <div><%= link_to "新規投稿", new_post_path(@post),method: :get, class: 'btn btn-primary'%></div>
+     <div><%= link_to "投稿を見る",posts_path,method: :get, class:"btn btn-primary"%></div>
+     <% end %>
+   </div>
+   
+   <div class="col-md-4" style="text-align:center;">
+        <p>posts/index</p>
+        
+        <% @posts.each do |post| %>
+        <div class="card mb-2 shadow p-3 mb-5  rounded">
+        <p><%= post.body%></p>
+        <%= render 'public/posts/image',post: post%>
+        <%= link_to "編集する",edit_post_path(post.id)%>
+        <%= link_to "削除する",post_path(post.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
+        </div>
+        <% end %>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
  </div>
+ 
+ 

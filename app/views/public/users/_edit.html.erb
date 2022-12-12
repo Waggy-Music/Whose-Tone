@@ -1,12 +1,12 @@
-<%= form_with model: user,method: :patch do |f| %>
+<%= form_with model: user,method: :patch,multipart: true do |f| %>
     <% if user.listener? %>
       <div class="edit_listener">
         <p>プロフィール画像<%=f.file_field:image%></p>
-        <p>名前<%= f.text_field:name %></p>
-        <p>ニックネーム<%= f.text_field:nick_name %></p>
+        <p>名前<%= f.text_field:name ,placeholder:"氏名※非表示になります" %></p>
+        <p>ニックネーム<%= f.text_field:nick_name ,placeholder:"サイトで表示されます"%></p>
         <p>アカウント種別<%=user.role %>※変更したい場合は別アカウントを新規作成</p>
-        <p>プロフィール<%= f.text_area:profile %></p>
-        <p>リンク<%= f.text_field:links %></p>
+        <p>プロフィール<%= f.text_area:profile,placeholder:"好きな音楽、よく行くライブハウス等"  %></p>
+        <p>リンク<%= f.text_field:links ,placeholder:"ご自身のSNSリンクなど"  %></p>
         <p>タグ<%= f.text_field:tag %></p>
         <%= f.submit"保存する",class: 'btn btn-success' %>
         <%=link_to"BACK",user_path, class: 'btn btn-secondary' %>

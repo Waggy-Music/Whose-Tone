@@ -22,7 +22,7 @@ class Public::PostsController < ApplicationController
    @post=Post.find(params[:id])
    @post.update(post_params)
    @post.save
-   flash[:notice]="投稿が完了しました。"
+   flash[:notice]="編集が完了しました。"
    redirect_to post_path(@post.id)
   end
   
@@ -30,7 +30,7 @@ class Public::PostsController < ApplicationController
     @post=Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
-   flash[:notice]="投稿を削除しました。"
+   flash[:notice]="投稿を削除しました"
   end
   
     

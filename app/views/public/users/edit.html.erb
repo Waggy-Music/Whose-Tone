@@ -1,22 +1,48 @@
-<div class="border" style="text-align:center;">
-<h2>プロフィール編集</h2>
-  <%= form_with model: @user,method: :patch do |f| %>
-    <% if @user.artist? %>
-    <div class="edit_artist">
-        <p>プロフィール画像<%=f.file_field:image%></p>
-        <p>名前<%= f.text_field:name,placeholder:"氏名※非表示になります" %></p>
-        <p>ニックネーム<%= f.text_field:nick_name ,placeholder:"サイトで表示されます" %></p>
-        <p>アカウント種別<%=@user.role %>※変更したい場合は別アカウントを新規作成</p>
-        <p>プロフィール<%= f.text_area:profile ,placeholder:"自分の紹介、どんな活動をしているか等" %></p>
-        <p>活動エリア<%= f.text_field:action_range,placeholder:"関東エリア、大阪全域"  %></p>
-        <p>活動スタイル<%= f.text_field:action_style,placeholder:"弾き方り、バンド"  %></p>
-        <p>リンク<%= f.text_field:links ,placeholder:"ご自身のサイトURL" %></p>
-        <p>タグ<%= f.text_field:tag ,placeholder:"ギター、ロック、ピアノ" %></p>
-        <%= f.submit"保存する",class: 'btn btn-success' %>
-        <%=link_to"BACK",user_path, class: 'btn btn-secondary' %>
+<div class="container" >
+  <div class="row">
+    <div class="col-md-3">
+
     </div>
+    
+    <% if @user.artist? %>
+    <%= form_with model: @user,method: :patch do |f| %>
+    
+      <h2 class="bg-light"style="text-align:center;">
+      プロフィール編集
+      </h2>
+      <div class="col-md mx-3 edit_artist border ">
+          <p>プロフィール画像<%=f.file_field:image%></p>
+          <p>名前<%= f.text_field:name,placeholder:"氏名※非表示になります" ,class:"form-control"%></p>
+          <p>ニックネーム<%= f.text_field:nick_name ,placeholder:"サイトで表示されます" ,class:"form-control"%></p>
+          <p>アカウント種別  <em class=text-secondary>※変更したい場合は別アカウントを新規作成</em></p>
+          <input class="form-control" type="text" placeholder=<%=@user.role_i18n%> disabled>
+          <p>プロフィール<%= f.text_area:profile ,placeholder:"自分の紹介、どんな活動をしているか等",class:"form-control" %></p>
+          <p>活動エリア<%= f.text_field:action_range,placeholder:"関東エリア、大阪全域" ,class:"form-control" %></p>
+          <p>活動スタイル<%= f.text_field:action_style,placeholder:"弾き方り、バンド"  ,class:"form-control"%></p>
+          <p>リンク<%= f.text_field:links ,placeholder:"ご自身のサイトURL",class:"form-control" %></p>
+          <p>タグ<%= f.text_field:tag ,placeholder:"ギター、ロック、ピアノ",class:"form-control" %></p>
+          <div class="mb-3">
+            <%= f.submit"保存する",class: 'btn btn-success' %>
+            <%=link_to"BACK",user_path, class: 'btn btn-secondary' %>
+          </div>
+      </div>
+        <% end %>
       <% else %>
         <%= render 'edit',user: @user%>
       <% end %>
-  <% end %>
+    </div>
+    
+
+      
+  
+  </div>
 </div>
+
+<!--  <div class="mb-3">-->
+<!--  <label for="exampleFormControlInput1" class="form-label">Email address</label>-->
+<!--  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">-->
+<!--</div>-->
+<!--<div class="mb-3">-->
+<!--  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>-->
+<!--  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>-->
+<!--</div>-->

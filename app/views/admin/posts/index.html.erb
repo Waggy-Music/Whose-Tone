@@ -1,12 +1,33 @@
+<div class="cotainer m-2">
+  <div class="row">
+    <div class="col-md-2">
+      
+    </div>
 
-<div class="container  my-5"style="text-align:center;">
-  <h2>admin/post/index</h2>
-  
-  <% @posts.each do |post| %>
-  
-  <p><%= post.body%></p>
-  <%= link_to "編集する",edit_post_path(post.id)%>
-  
-  <% end %>
+    <div class="col-md-8">
+        <h1>Admin::Posts#index</h1>
 
+        
+        <table class="table">
+          <tr class="table-secondary">
+            <th>ユーザー名</th>
+            <th>投稿内容</th>
+            <th>タグ</th>
+            <th>投稿ステータス</th>
+          </tr> 
+            <% @posts.each do |post| %>
+          <tr>
+              <td><%= post.user.nick_name%></td>
+              <td><%= post.body%></td>
+              <td><%= post.tag%></td>
+              <td><%= post.is_deleted%></td>
+          </tr>
+        
+        <%#= render 'public/posts/image',post: post%>
+        <%#= link_to "編集する",edit_post_path(post.id)%>
+        <% end %>
+        
+        </table>
+        
+   </div>
 </div>

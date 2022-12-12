@@ -14,5 +14,6 @@ import "bootstrap";
 import "../stylesheets/application" 
 
 Rails.start()
-Turbolinks.start()
+// Turbolinks.start()
 ActiveStorage.start()
+require('./preview') //追記したが未使用

@@ -1,0 +1,25 @@
+<div class="cotainer my-5 mx-1">
+    <div class="row">
+      <div class="col-md-4">
+        
+      </div>
+      
+      <div class="col-md-4" style="text-align:center;">
+        <p>admin/index</p>
+        <%= link_to "新規投稿", new_admin_information_path,method: :get, class: 'btn btn-primary'%>
+        <% @informations.each do |information| %>
+        <div class="card mb-2 shadow p-3 mb-5 bg-body rounded">
+        <p><%= information.body%></p>
+        
+        <%= link_to "編集する",edit_admin_information_path(information.id)%>
+        <%= link_to "削除する",admin_information_path(information.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
+        </div>
+        <% end %>
+      </div>  
+     
+      <div class="col-md-4">
+      
+      </div>
+
+    </div>    
+</div> 

@@ -10,9 +10,14 @@ class Public::UsersController < ApplicationController
   
   def update
     @user=current_user
-    @user.update(user_params)
+    if @user.update(user_params)
     flash[:notice] = "登録情報の変更が完了しました。"
     redirect_to user_path
+    else
+    flash[:danger] = "未入力項目があります"
+    @user=User.find(params[:id])
+    render :edit
+    end
   end
   
   def index

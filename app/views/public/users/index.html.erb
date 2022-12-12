@@ -1,5 +1,11 @@
 <div class="container  my-5"style="text-align:center;">
   <h2>ユーザー検索</h2>
-  <%= @users.each do |user|%>
+  <div>
+  <% @users.each do |user|%>
+  <%=user.id%>
+  <%=user.name%>
+  <%= user.profile%>
+  </br>
   <% end %>
+  </div>
 </div>
