@@ -1,11 +1,30 @@
 <div class="container  my-5"style="text-align:center;">
   <h2>ユーザー検索</h2>
-  <div>
-  <% @users.each do |user|%>
-  <%=user.id%>
-  <%=user.name%>
-  <%= user.profile%>
-  </br>
-  <% end %>
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    
+    <div class="col-md-4">
+      
+      <% @users.each do |user|%>
+      <div class="card pt-3 mb-3" >
+        <image class="card-img-top">
+          <% if user.image.attached? %>
+            <%= image_tag user.image, size: "100x100" %>
+          <% else %>
+            <%= image_tag 'no_image', size: "100x100" %>
+          <% end %>
+        </image>
+        <div class="card-body">
+        <h5 class="card-title">Name: <%= render 'name',user: user%></h5>
+        <p class="card-text"><%= user.profile%></p>
+        <%= link_to"プロフィール",user_path(user.id),class: "btn btn-info"%>
+      </div>
+    </div>
+      <% end %>
+      
+    </div>
+  
   </div>
 </div>
+

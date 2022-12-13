@@ -9,10 +9,11 @@
         
         <% @posts.each do |post| %>
         <div class="card mb-2 shadow p-3 mb-5 bg-body rounded">
-        <p><%= post.body%></p>
-        <%= render 'image',post: post%>
-        <%= link_to "編集する",edit_post_path(post.id)%>
-        <%= link_to "削除する",post_path(post.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
+          <%= render 'public/users/name',user: post.user%>
+          <p><%= post.body%></p>
+          <%= render 'image',post: post %>
+          <%= link_to "編集する",edit_post_path(post.id)%>
+          <%= link_to "削除する",post_path(post.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
         </div>
         <% end %>
       </div>  

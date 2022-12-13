@@ -44,7 +44,12 @@ class Public::PostsController < ApplicationController
   
   def index
     @posts=Post.all
-    
+    @information=Information.all
+#    @posts = []
+#    @posts << posts
+#    @posts << information
+#    @posts.flatten!
+#    @posts = @posts.sort {|x, y| x["created_at"] <=> y["created_at"]}.reverse
   end
   
   private

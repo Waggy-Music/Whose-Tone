@@ -1,9 +1,9 @@
 <div class="container  my-5"style="text-align:center;">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
       <h2 class="table-secondary">マイページ</h2>
       <image>
           <% if @user.image.attached? %>
@@ -51,7 +51,7 @@
             <td><%=link_to "編集", edit_user_path, class: 'btn btn-success' %></td>
             <td><%=link_to "TOPに戻る", root_path, class: 'btn btn-primary'%></td>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       
     </div>
     

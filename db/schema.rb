@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 2022_12_11_054750) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "admin_id"
     t.text "body", null: false
     t.string "tag"
     t.boolean "is_deleted", default: false, null: false

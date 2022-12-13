@@ -9,7 +9,7 @@ class User < ApplicationRecord
          enum role: {listener:0 ,artist:1,shop:2,maker:3}
          has_one_attached :image
          
-         validates:name,presence: true,length: { minimum: 1, maximum: 20 },uniqueness:true
+        # validates:name,presence: true,length: { minimum: 1, maximum: 20 },uniqueness:true
          
   def get_image(width,height)
     if image.attached?
