@@ -12,6 +12,9 @@
           <%= render 'public/users/name',user: post.user%>
           <p><%= post.body%></p>
           <%= render 'image',post: post %>
+          <div id="like_buttons">
+          <%= render '/likes/button',post: post%>
+          </div>
           <%= link_to "編集する",edit_post_path(post.id)%>
           <%= link_to "削除する",post_path(post.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
         </div>

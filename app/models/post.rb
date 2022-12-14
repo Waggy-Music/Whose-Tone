@@ -3,7 +3,11 @@ class Post < ApplicationRecord
   belongs_to :user
   #belongs_to :admin
   has_many_attached :images
+  has_many :likes,dependent: :destroy
   
+  def liked_by?(user)
+   likes.exists?(user_id: user.id)
+  end
   
   def get_image(width,height)
     if image.attached?

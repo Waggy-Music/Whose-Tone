@@ -31,7 +31,10 @@ Rails.application.routes.draw do
   scope module: :public do #URLは変えたくない、ファイル構成だけ指定のパスにしたい場合はこれ
 
   resources :users, only:[:show,:edit,:update,:index]
-  resources :posts
+  resources :posts do
+  post 'posts/:id/likes'=> 'public/likes#create'
+  resource :likes, only:[:create,:destroy]
+  end
   resources :informations,only:[:index,:show]
   end
 

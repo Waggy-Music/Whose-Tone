@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
          has_many :posts, dependent: :destroy
-         
+         has_many :likes,dependent: :destroy
          enum role: {listener:0 ,artist:1,shop:2,maker:3}
          has_one_attached :image
          

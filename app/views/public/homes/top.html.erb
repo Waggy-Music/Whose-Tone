@@ -18,6 +18,7 @@
         
         <% @posts.each do |post| %>
         <div class="card mb-2 shadow p-3 mb-5  rounded">
+        <%= render 'public/users/name',user: post.user%>
         <p><%= post.body%></p>
         <%= render 'public/posts/image',post: post%>
         <%= link_to "編集する",edit_post_path(post.id)%>
