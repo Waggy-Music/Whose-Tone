@@ -7,10 +7,10 @@
     <div class="col-md-4">
       
       <% @users.each do |user|%>
-      <div class="card pt-3 mb-3" >
-        <image class="card-img-top">
+      <div class="card pt-3 mb-3 shadow" >
+        <image class="card-img-top px-2">
           <% if user.image.attached? %>
-            <%= image_tag user.image, size: "100x100" %>
+            <%= image_tag user.image, size: "mx-auto" %>
           <% else %>
             <%= image_tag 'no_image', size: "100x100" %>
           <% end %>

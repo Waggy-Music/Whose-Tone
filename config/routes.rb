@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
   
-  namespace :admin do
-    get 'posts/index'
-    get 'posts/show'
-    get 'posts/edit'
-  end
   root to: 'public/homes#top'
   get 'about' => 'public/homes#about'
   get '/admin' => 'admin/homes#top'
@@ -31,9 +26,11 @@ Rails.application.routes.draw do
   scope module: :public do #URLは変えたくない、ファイル構成だけ指定のパスにしたい場合はこれ
 
   resources :users, only:[:show,:edit,:update,:index]
-  resources :posts do
-  post 'posts/:id/likes'=> 'public/likes#create'
+  resources :posts,only:[:new,:create,:show,:update,:destroy,:edit,:index] do
+  # post '/likes'=> 'likes#create'
+  # delete '/likes'=> 'likes#destroy'
   resource :likes, only:[:create,:destroy]
+  resource :comments, only:[:create,:destroy]
   end
   resources :informations,only:[:index,:show]
   end

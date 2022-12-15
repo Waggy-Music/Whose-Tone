@@ -1,4 +1,4 @@
-class LikesController < ApplicationController
+class Public::LikesController < ApplicationController
   
   def create
     @post = Post.find(params[:post_id])
@@ -13,6 +13,5 @@ class LikesController < ApplicationController
     like = current_user.likes.find_by(post_id: @post.id)
     like.destroy
   end
-  
   
 end
