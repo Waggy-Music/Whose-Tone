@@ -3,7 +3,7 @@
 <%= comment.user.name %>
 <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
 <% if comment.user == current_user %>
-<%= link_to "削除", post_comments_path(comment.post, comment), method: :delete,remote: true,class: "btn-sm btn-danger"  %>
+<%= link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete,remote: true,class: "btn-sm btn-danger col-2"  %>
 <% end %>
 </td>
 </tr>

@@ -77,7 +77,7 @@ user4=User.create!(
 id: 4, email: "c@c", 
 name: "珈琲館わみん", nick_name: nil, 
 address: "神奈川県横浜市南区宮元町3-56", 
-profile: "日中の喫茶は、BGMはジャズが流れ、落ち着きある店内です。夜は音楽イベントなどを開催しています！\r\n...", 
+profile: "日中の喫茶は、BGMはジャズが流れ、落ち着きある店内です。夜は音楽イベントなどを開催しています！電話番号：045-711-7407", 
 action_range: nil, action_style: nil, 
 links: "https://maitawamin.web.fc2.com/", 
 tag: "", holidays: "月曜から金曜 9:00-18:00、土日祝祭日 10:00-18:00", 

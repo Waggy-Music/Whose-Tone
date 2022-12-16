@@ -9,8 +9,8 @@
         
         <% @posts.each do |post| %>
         <div class="card mb-2 shadow p-3 mb-5 bg-body rounded">
-          <%= render 'public/users/name',user: post.user%>
-          <p><%= post.body%></p>
+          <strong><%= render 'public/users/name',user: post.user%></strong>
+          <p class="mt-2"><%= post.body%></p>
           <!--.created_at.strftime('%Y/%m/%d')-->
           <%= render 'image',post: post %>
           <div id="like_buttons_<%= post.id%>">
