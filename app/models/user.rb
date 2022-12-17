@@ -8,6 +8,7 @@ class User < ApplicationRecord
          has_many :likes,dependent: :destroy
          has_many :comments,dependent: :destroy
          enum role: {listener:0 ,artist:1,shop:2,maker:3}
+         enum boolean: {アクティブ:0,退会:1}
          has_one_attached :image
          
         # validates:name,presence: true,length: { minimum: 1, maximum: 20 },uniqueness:true

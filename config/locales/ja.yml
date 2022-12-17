@@ -6,3 +6,7 @@ ja:
         listener: 'リスナー'
         shop: 'ショップ'
         maker:  'メーカー'
+      boolean:
+        false:  "アクティブ"
+        true: "退会済み"
+        

@@ -1,0 +1,23 @@
+<div class="text-align-center m-2">
+<p>User index</p>
+
+<table class="table">
+    <tr class="alert-secondary">
+      <th>name</th>
+      <th>nickname</th>
+      <th>profile</th>
+      <th>status</th>
+    </tr>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.name,admin_user_path(user), method: :get %></td>
+      <td><%= link_to user.nick_name ,admin_user_path(user) , method: :get %></td>
+      <td><%= user.profile %></td>
+      <td><%= user.is_deleted %></td>
+    </tr>
+    <%end%>
+</table>
+
+
+
+</div>

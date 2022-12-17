@@ -1,12 +1,16 @@
 class Public::SearchesController < ApplicationController
   
   def search
-    @model = params[:model]
-    #binding.pry
     @content = params[:content]
-    @method = params[:method]
-    @records = search_for(@model, @content, @method,@tag)
-    @tag=params[:name]
+    
+    @result_nick_name=User.where("nick_name LIKE?",'%'+@content+'%')
+    @result_profile=User.where('profile LIKE ?', '%'+@content+'%')
+    @result_tag=User.where('tag LIKE ?', '%'+@content+'%')
+    @result_tag=Post.where('tag LIKE ?', '%'+@content+'%')
+    @result_body=Post.where('body LIKE ?', '%'+@content+'%')
+    #binding.pry
+    
+   
   end
   
   private

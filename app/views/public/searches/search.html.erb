@@ -1,4 +1,32 @@
-<h2>検索結果"<%= @content %>"</h2>
+<div class="container">
+    <div class="row">
 
-<h3>ユーザー</h3>
-<%= render 'public/users/user',users: @records%>
+        <div class="col-md-4">
+        </div>
+        <div class="card col-md-4 m-2 mt-5">
+            <h2>検索結果"<%= @content %>"</h2>
+            
+            <h3>ユーザー内検索</h3>
+            <%#= render 'public/users/user',users: @records%>
+            <% @result_nick_name.each do |user|%>
+            <%= link_to user.nick_name,user_path(user.id) %>
+            <% end %>
+            
+            <% @result_profile.each do |user|%>
+            <%= link_to user.profile,user_path(user.id) %>
+            <% end %>
+            
+            <% @result_tag.each do |user|%>
+            <%= link_to user.tag,user_path(user.id) %>
+            <% end %>
+            
+            <h3>投稿記事検索</h3>
+            <% @result_body.each do |post|%>
+            <%= link_to post.body,post_path(post.id) %>
+            <% end %>
+            <% @result_tag.each do |post|%>
+            <%= link_to post.tag,post_path(post.id)%>
+            <% end %>
+        </div>
+    </div>
+</div>

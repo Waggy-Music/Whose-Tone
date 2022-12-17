@@ -39,7 +39,7 @@
       <% elsif admin_signed_in? %>
         <li><%= link_to admin_path, class:'btn btn-outline-dark bg-warning mr-3' do %>HOME<% end %></li>
         <li><%= link_to admin_posts_path, class:'btn btn-outline-dark bg-warning mr-3' do %>投稿一覧<% end %></li>
-        <li><%#= link_to admin_users_path, class:'btn btn-outline-dark bg-warning mr-3' do %>User一覧<%# end %></li>
+        <li><%= link_to admin_users_path, class:'btn btn-outline-dark bg-warning mr-3' do %>User一覧<% end %></li>
         <li><%= link_to destroy_admin_session_path, method: :delete, class:'btn btn-outline-dark bg-warning' do %>ログアウト<% end %></li>
 
       

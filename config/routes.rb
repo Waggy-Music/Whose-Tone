@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  namespace :admin do
+    get 'users/show'
+    get 'users/edit'
+  end
   root to: 'public/homes#top'
   get 'about' => 'public/homes#about'
   get '/admin' => 'admin/homes#top'
@@ -20,6 +24,7 @@ Rails.application.routes.draw do
   
   resources :informations
   resources :posts,only:[:index,:show,:edit,:update]
+  resources :users,only:[:index,:show,:update]
   
   end
 
