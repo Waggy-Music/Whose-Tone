@@ -1,17 +1,22 @@
 <h1>Admin::Users#show</h1>
 <p>Find me in app/views/admin/users/show.html.erb</p>
 <div class="col-md-4">
-<%= @user.name %>
-<%= @user.nick_name %>
-<%= @user.role%>
-<%= @user.address %>
-<%= @user.profile %>
-<%= @user.action_range %>
-<%= @user.action_style %>
-<%= @user.links %>
-<%= @user.tag %>
-<%= @user.holidays %>
-<%= @user.shop_style %>
-<%= @user.is_deleted %>
+<p>名前<%= @user.name %></p>
+<p>ニックネーム<%= @user.nick_name %></p>
+<p>ユーザー種別<%= @user.role%></p>
+<p>メールアドレス<%= @user.email%></p>
+<p>住所<%= @user.address %></p>
+<p>プロフィール<%= @user.profile %></p>
+<p>活動拠点<%= @user.action_range %></p>
+<p>活動スタイル<%= @user.action_style %></p>
+<p>リンク<%= @user.links %></p>
+<p>タグ<%= @user.tag %></p>
+<p>定休日<%= @user.holidays %></p>
+<p>店舗形態<%= @user.shop_style %></p>
+<p>ステータス<% if @user.is_deleted == false%></p>
+          <strong class="text-success"><%='有効' %></strong>
+          <%else%>
+          <strong class="text-danger"><%='退会済み' %></strong>
+          <%end%>
 </div>
 

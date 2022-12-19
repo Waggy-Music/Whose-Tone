@@ -22,6 +22,33 @@ class Public::UsersController < ApplicationController
   
   def index
     @users=User.all
+    # if params[:artist]
+    #   @users = User.artist
+    # elsif params[:old]
+    #   @users = User.old
+    # elsif params[:shop]
+    #   @users = User.shop
+    # # elsif params[:favorite]
+    # #   #@books=Book.count 
+    # #   @users = Book.includes(:favorited_users)
+    # else
+    #   @users = User.all
+    # end
+  end
+  
+   #登録情報編集画面から退会ページを表示するアクション
+  def unsubscribe
+    # binding.pry
+  end
+
+  #退会アクション
+  def is_deleted
+   @user = current_user
+   #is_deletedカラムにフラグを立てる(defaultはfalse)
+   @user.update(is_deleted: true)
+   reset_session
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
   end
   
   

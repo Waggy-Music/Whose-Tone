@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
   
-  namespace :admin do
-    get 'users/show'
-    get 'users/edit'
-  end
   root to: 'public/homes#top'
   get 'about' => 'public/homes#about'
   get '/admin' => 'admin/homes#top'
@@ -24,13 +20,16 @@ Rails.application.routes.draw do
   
   resources :informations
   resources :posts,only:[:index,:show,:edit,:update]
-  resources :users,only:[:index,:show,:update]
+  resources :users,only:[:index,:show,:update,:edit]
   
   end
-
+  get 'users/unsubscribe' => 'public/users#unsubscribe'
+  patch 'users/delete_status' => 'public/users#is_deleted'
   scope module: :public do #URLは変えたくない、ファイル構成だけ指定のパスにしたい場合はこれ
 
   resources :users, only:[:show,:edit,:update,:index]
+  # get '/users/unsubscribe' => 'users#unsubscribe'
+  # patch '/users/delete_status' => 'users#is_deleted'
   resources :posts do
   # post '/likes'=> 'likes#create'
   # delete '/likes'=> 'likes#destroy'

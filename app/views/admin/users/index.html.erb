@@ -5,15 +5,19 @@
     <tr class="alert-secondary">
       <th>name</th>
       <th>nickname</th>
-      <th>profile</th>
+      <th>ユーザー種別</th>
       <th>status</th>
     </tr>
     <% @users.each do |user| %>
     <tr>
       <td><%= link_to user.name,admin_user_path(user), method: :get %></td>
       <td><%= link_to user.nick_name ,admin_user_path(user) , method: :get %></td>
-      <td><%= user.profile %></td>
-      <td><%= user.is_deleted %></td>
+      <td><%= user.role_i18n%></td>
+      <td><% if user.is_deleted == false%></p>
+          <strong class="text-success"><%='有効' %></strong>
+          <%else%>
+          <strong class="text-danger"><%='退会済み' %></strong>
+          <%end%></td>
     </tr>
     <%end%>
 </table>

@@ -21,17 +21,27 @@
         <p>posts/index</p>
         
         <% @posts.each do |post| %>
-        <div class="card mb-2 shadow p-3 mb-5  rounded">
-        <%= render 'public/users/name',user: post.user%>
-        <p><%= post.body%></p>
-        <%= render 'public/posts/image',post: post%>
-        <%= link_to "編集する",edit_post_path(post.id)%>
-        <%= link_to "削除する",post_path(post.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
+        <div class="card mb-2 shadow p-3 mb-5 bg-body rounded">
+          <strong><%= render 'public/users/name',user: post.user%></strong>
+          <p class="mt-2"><%= post.body%></p>
+          <!--.created_at.strftime('%Y/%m/%d')-->
+          <%= render 'public/posts/image',post: post %>
+          <div class="d-flex justify-content-around mt-1">
+            <div id="like_buttons_<%= post.id%>">
+              <%= render 'public/likes/button',post: post%>
+            </div>
+            <%= link_to "#{post.comments.count} コメント", post_path(post.id) %>
+            <% if post.user ==current_user%>
+            <%= link_to "編集する",edit_post_path(post.id)%>
+            <%= link_to "削除する",post_path(post.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
+            <%end%>
+          </div>
         </div>
         <% end %>
-    </div>
-    <div class="col-md-4">
-    <%= render 'public/searches/form'%>
+      </div>  
+    
+    <div class="col-md-4 mt-2">
+    
     </div>
   </div>
  </div>
