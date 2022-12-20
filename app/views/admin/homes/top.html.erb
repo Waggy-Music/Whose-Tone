@@ -2,7 +2,7 @@
  <div class="offset-2">
    <% unless admin_signed_in?%>
    <%= link_to "ログイン", new_admin_session_path, class: 'btn btn-secondary' %>
-   <%= link_to "新規登録", new_admin_registration_path, class: 'btn btn-success' %>
+   <%#= link_to "新規登録", new_admin_registration_path, class: 'btn btn-success' %>
    <% end %>
    <% if admin_signed_in?%>
    <%= link_to "ログアウト", destroy_admin_session_path,method: :delete, class: 'btn btn-danger'%>

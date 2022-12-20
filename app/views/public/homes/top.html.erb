@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4 pt-4 alert-secondary">
+    <nav class="col-md-4 pt-4 alert-secondary navilist-expand-lg">
      <% unless user_signed_in?%>
      <div><%= link_to "ログイン", new_user_session_path, class: 'btn btn-secondary btn-block' %></div>
      <div><%= link_to "新規登録", new_user_registration_path, class: 'btn btn-success btn-block' %></div>
@@ -15,7 +15,7 @@
      <%= link_to "このサイトについて",about_path,method: :get, class:"btn-block btn-info"%>
      <p>お気に入り</p>
      <% end %>
-   </div>
+   </nav>
    
    <div class="col-md-4" style="text-align:center;">
         <p>posts/index</p>

@@ -1,9 +1,9 @@
 <div class="container  my-5"style="text-align:center;">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
       
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
       <h2 class="table-secondary">マイページ</h2>
       <image>
           <% if @user.image.attached? %>
@@ -12,26 +12,27 @@
             <%= image_tag 'no_image', size: "100x100" %>
           <% end %>
       </image>
+      <br>
       <% if @user.artist? %>
         <table class="table table-bordered mt-2 ">
           <tr>
-            <td class="table-secondary">ニックネーム</td>
+            <td class="table-secondary text-nowrap">ニックネーム</td>
             <td><%= @user.nick_name%></td>
           </tr>
           <tr>
-            <td class="table-secondary">アカウント種別</td>
+            <td class="table-secondary text-nowrap">アカウント種別</td>
             <td><%= @user.role_i18n%></td>
           </tr>
           <tr>
-            <td class="table-secondary">プロフィール</td>
+            <td class="table-secondary text-nowrap">プロフィール</td>
             <td><%= @user.profile%></td>
           </tr>
           <tr>
-            <td class="table-secondary">活動エリア</td>
+            <td class="table-secondary text-nowrap">活動エリア</td>
             <td><%= @user.action_range%></td>
           </tr>
           <tr>
-            <td class="table-secondary">活動スタイル</td>
+            <td class="table-secondary text-nowrap">活動スタイル</td>
             <td><%= @user.action_style%></td>
           </tr>
           <tr>
@@ -47,12 +48,13 @@
       <% else %>
       <%= render 'show',user: @user%>
       <% end %>
-            
+            <% if @user ==current_user%>
             <td><%=link_to "編集", edit_user_path, class: 'btn btn-success' %></td>
             <%=link_to "退会する",users_unsubscribe_path, class: 'btn btn-danger' %>
+            <%end%>
             <td><%=link_to "TOPに戻る", root_path, class: 'btn btn-primary'%></td>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       
     </div>
     

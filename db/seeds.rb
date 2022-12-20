@@ -92,7 +92,7 @@ Post.create!(
   body: "こんにちは。エリックです。
   今度日本に行けるのはいつかな？
   楽しみにしています。",
-  tag: "",
+  tag: "武道館",
   is_deleted: false,
   )
   post2=Post.create!(
@@ -116,9 +116,87 @@ Post.create!(
   post3=Post.create!(
   id: 3,
   user_id: 2,
-  body: "写真も頂きありがとうございます！
-先日の多摩川での野外ライブ写真ですー",
+  body: "写真もありがとう~
+先日の多摩川での野外ライブ写真です。",
   tag: "",
   is_deleted: false,
   )
   post3.images.attach(io: File.open(Rails.root.join("app/assets/images/tamagawa1.jpg")), filename: "tamagawa1.jpg")
+  
+ user5=User.create!(
+  id:5,
+  email: "d@d", 
+  name: "モンスターカクメイ", 
+  nick_name: "モンスターカクメイ", 
+  address: nil, 
+  profile: "2020年から活動をスタート。ライブ実績1回で大型フェス、
+【スーパーソニック2021】に出場し、関係者から大きな話題を呼ぶ。
+主に東京・名古屋・京都・大阪で活動している。
+
+SNSではTikTokの公式アーティストとして活動中。
+ライブ中のハプニング動画が140万回以上再生された。", 
+  action_range: "東京・名古屋・京都・大阪", 
+  action_style: "ロック、バンド", 
+  links: "", tag: "ロック", 
+  holidays: nil, shop_style: nil, is_deleted: false, 
+  role: "artist",
+  password:'dddddd')
+  user5.image.attach(io: File.open(Rails.root.join("app/assets/images/moncaku.jpg")), filename: "moncaku.jpg") 
+  
+  post5=Post.create!(
+  id: 5,
+  user_id: 5,
+  body: "私たちの代表曲[Rock Star]が配信スタートしました！
+  みんな聞いてねー！",
+  tag: "rock",
+  is_deleted: false,
+  )
+  post5.images.attach(io: File.open(Rails.root.join("app/assets/images/rockstar.jpg")), filename: "rockstar.jpg")
+  
+  post6=Post.create!(
+  id: 6,
+  user_id: 2,
+  body: "武蔵小山 6Grams ありがとうございました〜
+  大変盛り上がりました〜",
+  tag: "弾き語り",
+  is_deleted: false,
+  )
+  post6.images.attach(io: File.open(Rails.root.join("app/assets/images/tomi1.jpg")), filename: "tomi1.jpg")
+  
+user6=User.create!(
+id: 6, email: "e@e", 
+name: "LiveSpace早稲田RiNen", nick_name: nil, 
+address: "〒162-0042 東京都新宿区早稲田町74
+早稲田オアシスビルB1F", 
+profile: "天然素材の「麻（Linen:リネン）」の特徴である風通しの良さや触り心地の良さをイメージし、
+この場所も風通しの良い場所であって欲しい、そして心地良い場所であって欲しいと言う願いと「
+理念（Rinen:リネン）」想いを伝える場所、想いが伝わる場所であったら、と言う願いを込め命名しました。
+ 
+全てのパフォーマンスに敬意を払い
+全力でサポートさせて頂きます。
+ 
+LiveSpace早稲田RiNen", 
+action_range: nil, action_style: nil, 
+links: "https://www.waseda-rinen.com", 
+tag: "", holidays: "月曜から金曜 9:00-18:00、土日祝祭日 10:00-18:00", 
+shop_style: "ライブハウス", is_deleted: false, role: "shop",
+password:'eeeeee'
+)
+user6.image.attach(io: File.open(Rails.root.join("app/assets/images/rinen.jpg")), filename: "rinen.jpg")
+
+User.create!(
+id:7,
+email: "g@guest", 
+name: "ゲスト", 
+nick_name: "ゲストさん", 
+address: nil, 
+profile: "ゲスト様、本日はこのページをご覧いただきありがとうございます。
+皆様のお役に立てるよう、今後とも精進していく所存です。", 
+action_range: nil, 
+action_style: nil, 
+links: "", tag: "", 
+holidays: nil, shop_style: nil, is_deleted: false, 
+role: "listener",
+password:'guests')
+
+
