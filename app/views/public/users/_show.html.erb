@@ -14,7 +14,7 @@
     </tr>
     <tr>
       <td class="table-secondary">リンク</td>
-      <td><%= user.links%></td>
+      <td><%= text_url_to_link((h(user.links).html_safe)).html_safe %></td>
     </tr>
     <tr>
       <td class="table-secondary">タグ</td>
@@ -52,7 +52,7 @@
     </tr>
     <tr>
       <td class="table-secondary">リンク</td>
-      <td><%= user.links%></td>
+      <td><%= text_url_to_link((h(user.links).html_safe)).html_safe %></td>
     </tr>
     <tr>
       <td class="table-secondary">タグ</td>
@@ -91,7 +91,7 @@
     </tr>
     <tr>
       <td class="table-secondary">リンク</td>
-      <td><%= user.links%></td>
+      <td><%= text_url_to_link((h(user.links).html_safe)).html_safe %></td>
     </tr>
     <tr>
       <td class="table-secondary">タグ</td>

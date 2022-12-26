@@ -2,9 +2,16 @@
 
 <% if user.artist?%>
 <%= user.nick_name%>
-<%else%>
-<%= user.name%>
 <%end%>
+
 <% if user.listener?%>
 <%= user.nick_name%>
+<%end%>
+
+<% if user.shop?%>
+<%= user.name%>
+<%end%>
+
+<% if user.maker?%>
+<%= user.name%>
 <%end%>

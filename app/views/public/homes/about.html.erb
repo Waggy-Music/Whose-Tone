@@ -1,23 +1,39 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-4"></div>
+    
+    <nav class="col-md-4 pt-4 alert-secondary navilist-expand-lg d-none d-sm-none d-md-block">
+     <% unless user_signed_in?%>
+     <div><%= link_to "ログイン", new_user_session_path, class: 'btn btn-secondary btn-block' %></div>
+     <div><%= link_to "新規登録", new_user_registration_path, class: 'btn btn-success btn-block' %></div>
+     <% end %>
+     <% if user_signed_in?%>
+     <%= link_to "投稿を見る",posts_path,method: :get, class:"btn-block btn-dark "%>
+     <%= link_to "アーティストを探す",users_path( role: 'artist'), class:"btn-block btn-dark"%>
+     <%= link_to "店舗を探す",users_path( role: 'shop'), class:"btn-block btn-dark"%>
+     <%= link_to "新規投稿", new_post_path(@post),method: :get, class: 'btn-block btn-primary'%><br></br>
+     <%= link_to "マイページ", user_path(@user.id), class: 'btn-block btn-dark'%>
+     <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: 'btn-block btn-danger'%>
+     <%= link_to "このサイトについて",about_path,method: :get, class:"btn-block btn-info"%>
+     
+     <% end %>
+   </nav>
     <div  style="text-align:left; m-2">
 
       <h2><em>About</em></h2>
       
       <p>
       インディーズ音楽家の検索、コミュニティサイト"Whose Tone?"<br>
-      「作成した経緯」<br>
-      動画配信サービスやサブスク制の音楽配信などが主流になった昨今。<br>
-      しかし、いくら情報媒体が発達しても<strong>「生のライブ」</strong>には敵いません。<br>
+      作成した経緯を少しお話しします。<br>
+      動画配信サービスやサブスク制の音楽配信などが主流になった昨今ですが。<br>
+      いくら情報媒体が発達しても<strong>「生のライブ」</strong>には敵いません。<br>
       <br>
-      私は音楽家による「生のライブ」はいつの時代も無くならないと考えています。<br>
+      私は音楽家による<strong>「生のライブ」はいつの時代も無くならない</strong>と考えています。<br>
       そこでインディーズで活動してる音楽家とそれを探してる人々のコミュニティサイトが<br>
       あったらいいなと思い制作に至りました。<br>
       <br>
-      また音楽家以外にもライブハウス、飲食店、楽器業界の売上アップのために<br>
-      検索機能も実装いたしました。<br>
-      リスナーの知らない近所でのイベント、新しい音楽家やお店の発見につながってほしいと願います。<br>
+      また音楽家以外にもライブハウス、飲食店、楽器業界の売上アップのために繋がってほしい。<br>
+      知らない近所での音楽イベントの発見や、<br>
+      新しい音楽家やお店の発見につながってほしいと願います。
       <br>
       制作者 Waggy
       </p>

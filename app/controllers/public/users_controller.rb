@@ -21,19 +21,17 @@ class Public::UsersController < ApplicationController
   end
   
   def index
-    @users=User.all
-    # if params[:artist]
-    #   @users = User.artist
-    # elsif params[:old]
-    #   @users = User.old
-    # elsif params[:shop]
-    #   @users = User.shop
-    # # elsif params[:favorite]
-    # #   #@books=Book.count 
-    # #   @users = Book.includes(:favorited_users)
-    # else
-    #   @users = User.all
-    # end
+    if params[:role] == 'listener'
+      @users = User.where(role: User.roles[:listener])
+    elsif params[:role] == 'artist'
+      @users = User.where(role: User.roles[:artist])
+    elsif params[:role] == 'shop'
+      @users = User.where(role: User.roles[:shop])
+    elsif params[:role] == 'maker'
+      @users = User.where(role: User.roles[:maker])
+    else
+      @users = User.all
+    end
   end
   
    #登録情報編集画面から退会ページを表示するアクション

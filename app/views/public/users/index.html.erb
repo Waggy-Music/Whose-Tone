@@ -5,7 +5,11 @@
     </div>
     
     <div class="col-md-4">
-      <%#= link_to '古い順', users_path(old: "true") %>
+      <%= link_to 'リスナー', users_path(role: 'listener') %>
+      <%= link_to 'アーティスト', users_path(role: 'artist') %>
+      <%= link_to '店舗', users_path( role: 'shop') %>
+      <%= link_to 'メーカー', users_path( role: 'maker') %>
+      <%= link_to 'all', users_path%>
       <% @users.each do |user|%>
       <div class="card pt-3 mb-3 shadow" >
         <image class="card-img-top px-2">

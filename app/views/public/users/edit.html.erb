@@ -19,7 +19,7 @@
           <p>プロフィール<%= f.text_area:profile ,placeholder:"自分の紹介、どんな活動をしているか等",class:"form-control" %></p>
           <p>活動エリア<%= f.text_field:action_range,placeholder:"関東エリア、大阪全域" ,class:"form-control" %></p>
           <p>活動スタイル<%= f.text_field:action_style,placeholder:"弾き方り、バンド"  ,class:"form-control"%></p>
-          <p>リンク<%= f.text_field:links ,placeholder:"ご自身のサイトURL",class:"form-control" %></p>
+          <p>リンク<%= f.url_field:links ,placeholder:"ご自身のサイトURL",class:"form-control" %></p>
           <p>タグ<%= f.text_field:tag ,placeholder:"ギター、ロック、ピアノ",class:"form-control" %></p>
           <div class="mb-3">
             <%= f.submit"保存する",class: 'btn btn-success' %>

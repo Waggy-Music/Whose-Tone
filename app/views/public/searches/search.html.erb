@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container my-3">
     <div class="row">
 
         <div class="col-md-4">
@@ -11,22 +11,32 @@
             <% @result_nick_name.each do |user|%>
             <%= link_to user.nick_name,user_path(user.id) %>
             <% end %>
-            
+            <br>
             <% @result_profile.each do |user|%>
             <%= link_to user.profile,user_path(user.id) %>
             <% end %>
-            
+            <br>
             <% @result_tag.each do |user|%>
             <%= link_to user.tag,user_path(user.id) %>
             <% end %>
-            
+            <br>
+            <% @result_address.each do |user|%>
+            <%= link_to user.address,user_path(user.id) %>
+            <% end %>
+            <br>
+            <% @result_action_range.each do |user|%>
+            <%= link_to user.action_range,user_path(user.id) %>
+            <% end %>
+            <br>
             <h3>投稿記事検索</h3>
             <% @result_body.each do |post|%>
             <%= link_to post.body,post_path(post.id) %>
             <% end %>
+            <br>
             <% @result_tag.each do |post|%>
             <%= link_to post.tag,post_path(post.id)%>
             <% end %>
+            <br>
         </div>
     </div>
 </div>

@@ -36,7 +36,7 @@ profile: "デルタブルースをルーツに持ち
 ラーメンはちぢれ麺派　特技はエコ運転", 
 action_range: "神奈川県、東京都", 
 action_style: "ギター弾き語り", 
-links: "", tag: "Blues", 
+links: "https://www.youtube.com/channel/UCRoHr5FoIzQK7vHr5Of4QDQ", tag: "Blues", 
 holidays: nil, shop_style: nil, is_deleted: false, 
 role: "artist",
 password:'mmmmmm')
@@ -52,7 +52,7 @@ profile: "あなたにソウルフルな歌をお届けしますよ〜
 見た目怖いって言われるけどほんとは優しいんすよ〜", 
 action_range: "神奈川県、東京都", 
 action_style: "ギター弾き語り、バンド", 
-links: "", tag: "Blues", 
+links: "https://tomizukaband.wixsite.com/tomizukayasunosuke/videos", tag: "Blues", 
 holidays: nil, shop_style: nil, is_deleted: false, 
 role: "artist",
 password:'aaaaaa')
@@ -137,7 +137,7 @@ SNSではTikTokの公式アーティストとして活動中。
 ライブ中のハプニング動画が140万回以上再生された。", 
   action_range: "東京・名古屋・京都・大阪", 
   action_style: "ロック、バンド", 
-  links: "", tag: "ロック", 
+  links: "https://www.monstercakumay.com", tag: "ロック", 
   holidays: nil, shop_style: nil, is_deleted: false, 
   role: "artist",
   password:'dddddd')
@@ -199,4 +199,46 @@ holidays: nil, shop_style: nil, is_deleted: false,
 role: "listener",
 password:'guests')
 
+user8=User.create!(
+id: 8, email: "f@f", 
+name: "赤坂Cantina", nick_name: nil, 
+address: "〒107-0052東京都港区赤坂2-13-17シントミ赤坂第2ビル3F", 
+profile: "赤坂TBS近くで営業しているライブハウス＆バー。
+アマチュアバンドのライブ企画、プロを呼んでのライブパーティー。イベント貸切・結婚式二次会など。
+🚃最寄：千代田線 赤坂駅から徒歩5分／銀座線　赤坂見附駅から徒歩10分　　☎03-3586-7476", 
+action_range: nil, action_style: nil, 
+links: "https://akasakac2020.wixsite.com/livehouse", 
+tag: "赤坂", holidays: "年末年始", 
+shop_style: "ライブハウス", is_deleted: false, role: "shop",
+password:'ffffff'
+)
+user8.image.attach(io: File.open(Rails.root.join("app/assets/images/akasaka_f.jpg")), filename: "akasaka_f.jpg")
 
+user9=User.create!(
+id: 9, email: "fender@f", 
+name: "fender Japan", nick_name: nil, 
+address:"〒150-0001 東京都渋谷区神宮前3丁目1番30号", 
+profile:"1946年から続く輝かしい歴史を持つフェンダーは、
+ロックからカントリー＆ウェスタン、ジャズ、R&Bなど、ほぼ世界中のすべての音楽ジャンルにおいて、
+それらに触れ、表現してきました。ビギナーや愛好家から、世界的に賞賛されているアーティストやパフォーマーまで、
+多くの人がフェンダーの楽器とアンプを使用しており、それは敬意を表される音楽業界の代名詞となるのみでなく、
+文化の象徴にもなっています。わたしたちは、世界中でTHE SPIRIT OF ROCK-N-ROLL®（ロックンロール魂）
+を守り続けることを企業のビジョンに、そして全世界の音楽ファンの期待を上回ることをミッションに掲げています。",
+action_range: nil, action_style: nil, 
+links: "https://www.fender.com/ja-JP/start", 
+tag: "ギター、ベース、アンプ", holidays: "年末年始", 
+shop_style: "楽器メーカー(お問い合わせは各販売店へ）", is_deleted: false, role: "maker",
+password:'ffffff'
+)
+user9.image.attach(io: File.open(Rails.root.join("app/assets/images/fender-logo.jpg")), filename: "fender-logo.jpg")
+
+Post.create!(
+   id: 7,
+  user_id: 4,
+  body: "蒔田駅近くのわみんです。
+  2022年もお世話になりました
+  また来年皆様にお会いできるのを
+  楽しみにしています。",
+  tag: "わみん",
+  is_deleted: false,
+  )
