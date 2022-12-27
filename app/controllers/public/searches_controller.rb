@@ -2,7 +2,10 @@ class Public::SearchesController < ApplicationController
   
   def search
     @content = params[:content]
-    
+    if @content==""
+      flash[:warning]="検索をする場合は文字を入力してください。"
+      redirect_to request.referer
+    else
     @result_nick_name=User.where("nick_name LIKE?",'%'+@content+'%')
     @result_profile=User.where('profile LIKE ?', '%'+@content+'%')
     @result_address=User.where('address LIKE ?', '%'+@content+'%')
@@ -11,7 +14,7 @@ class Public::SearchesController < ApplicationController
     @result_tag=Post.where('tag LIKE ?', '%'+@content+'%')
     @result_body=Post.where('body LIKE ?', '%'+@content+'%')
     #binding.pry
-    
+    end
    
   end
   

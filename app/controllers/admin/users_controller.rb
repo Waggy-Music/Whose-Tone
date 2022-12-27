@@ -1,5 +1,9 @@
 class Admin::UsersController < ApplicationController
   
+  def index
+    
+  end
+  
   def update
     @user=current_user
     if @user.update(user_params)

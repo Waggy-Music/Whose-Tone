@@ -1,17 +1,17 @@
 <!--名前とニックネームの表示をセパレートさせるテンプレ-->
 
 <% if user.artist?%>
-<%= user.nick_name%>
+<%=link_to user.nick_name,user_path(user.id)%>
 <%end%>
 
 <% if user.listener?%>
-<%= user.nick_name%>
+<%=link_to user.nick_name,user_path(user.id)%>
 <%end%>
 
 <% if user.shop?%>
-<%= user.name%>
+<%=link_to user.name,user_path(user.id)%>
 <%end%>
 
 <% if user.maker?%>
-<%= user.name%>
+<%=link_to user.name,user_path(user.id)%>
 <%end%>

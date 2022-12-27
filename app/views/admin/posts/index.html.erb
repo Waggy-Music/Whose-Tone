@@ -9,18 +9,24 @@
 
         
         <table class="table">
-          <tr class="table-secondary">
+          <tr class="table-secondary text-nowrap">
             <th>ユーザー名</th>
             <th>投稿内容</th>
             <th>タグ</th>
             <th>投稿ステータス</th>
+            <th></th>
           </tr> 
             <% @posts.each do |post| %>
           <tr>
-              <td><%= post.user.nick_name%></td>
+              <td><%=render 'public/users/name',user: post.user%></td>
               <td><%= post.body%></td>
               <td><%= post.tag%></td>
-              <td><%= post.is_deleted%></td>
+              <td><% if post.is_deleted == false%>
+          <strong class="text-success"><%='有効' %></strong>
+          <%else%>
+          <strong class="text-danger"><%='削除済み' %></strong>
+          <%end%></td>
+          <td><%=link_to"変更する",admin_posts_delete_status_path, method: :patch,class: "btn btn-warning text-nowrap"%></td>
           </tr>
         
         <%#= render 'public/posts/image',post: post%>

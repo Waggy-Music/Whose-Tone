@@ -7,6 +7,7 @@
       <th>nickname</th>
       <th>ユーザー種別</th>
       <th>status</th>
+      <th></th>
     </tr>
     <% @users.each do |user| %>
     <tr>
@@ -18,6 +19,7 @@
           <%else%>
           <strong class="text-danger"><%='退会済み' %></strong>
           <%end%></td>
+          <td><%=link_to"変更する",admin_users_delete_status_path, method: :patch,class: "btn btn-warning"%></td>
     </tr>
     <%end%>
 </table>
