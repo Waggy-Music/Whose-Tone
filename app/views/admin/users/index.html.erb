@@ -19,7 +19,7 @@
           <%else%>
           <strong class="text-danger"><%='退会済み' %></strong>
           <%end%></td>
-          <td><%=link_to"変更する",admin_users_delete_status_path, method: :patch,class: "btn btn-warning"%></td>
+          <td><%=link_to"変更する",admin_users_delete_status_path(@post), method: :patch,class: "btn btn-warning"%></td>
     </tr>
     <%end%>
 </table>

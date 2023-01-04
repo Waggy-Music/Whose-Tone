@@ -1,8 +1,6 @@
 class Admin::UsersController < ApplicationController
   
-  def index
-    
-  end
+
   
   def update
     @user=current_user
@@ -26,6 +24,16 @@ class Admin::UsersController < ApplicationController
   
   def index
     @users=User.all
+  end
+  
+  #退会アクション
+  def is_deleted
+   @user = current_user
+   #is_deletedカラムにフラグを立てる(defaultはfalse)
+   @user.update(is_deleted: true)
+   reset_session
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
   end
   
 end

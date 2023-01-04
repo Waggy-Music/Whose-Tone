@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   resources :informations
   resources :posts,only:[:index,:show,:edit,:update]
   resources :users,only:[:index,:show,:update,:edit]
-  patch 'users/delete_status' => 'admin/users#is_deleted'
-  patch 'posts/delete_status' => 'admin/posts#is_deleted'
+  patch 'users/delete_status' => 'users#is_deleted'
+  patch 'posts/delete_status' => 'posts#is_deleted'
   end
   get 'users/unsubscribe' => 'public/users#unsubscribe'
   patch 'users/delete_status' => 'public/users#is_deleted'
