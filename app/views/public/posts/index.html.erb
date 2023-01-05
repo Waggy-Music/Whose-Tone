@@ -8,6 +8,7 @@
         <h3 class="border">投稿を見る</h3>
         
         <% @posts.each do |post| %>
+        <% if post.is_deleted == false%>
         <div class="card mb-2 shadow p-3 mb-5 bg-body rounded">
           <strong><%= render 'public/users/name',user: post.user%></strong>
           <p class="mt-2"><%= post.body%></p>
@@ -17,13 +18,14 @@
             <div id="like_buttons_<%= post.id%>">
               <%= render 'public/likes/button',post: post%>
             </div>
-            <%= link_to "#{post.comments.count} コメント", post_path(post.id) %>
-            <% if post.user ==current_user%>
-            <%= link_to "編集する",edit_post_path(post.id)%>
-            <%= link_to "削除する",post_path(post.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
+              <%= link_to "#{post.comments.count} コメント", post_path(post.id) %>
+              <% if post.user ==current_user%>
+              <%= link_to "編集する",edit_post_path(post.id)%>
+              <%= link_to "削除する",post_path(post.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
             <%end%>
           </div>
         </div>
+        <%end%>
         <% end %>
       </div>  
      

@@ -26,7 +26,7 @@
           <%else%>
           <strong class="text-danger"><%='削除済み' %></strong>
           <%end%></td>
-          <td><%=link_to"変更する",admin_posts_delete_status_path, method: :patch,class: "btn btn-warning text-nowrap"%></td>
+          <td><%=link_to"変更する",admin_post_path(post.id), method: :patch,class: "btn btn-warning text-nowrap"%></td>
           </tr>
         
         <%#= render 'public/posts/image',post: post%>

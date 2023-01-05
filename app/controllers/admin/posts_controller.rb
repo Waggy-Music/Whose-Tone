@@ -2,10 +2,14 @@ class Admin::PostsController < ApplicationController
   
   def update
    @post=Post.find(params[:id])
-   @post.update(post_params)
+   if @post.is_deleted == false
+   @post.update(is_deleted: true)
+   else
+   @post.update(is_deleted: false)
+   end
    @post.save
    flash[:notice]="編集が完了しました。"
-   redirect_to admin_post_path(@post.id)
+   redirect_to admin_posts_path
   end
   
   # def destroy

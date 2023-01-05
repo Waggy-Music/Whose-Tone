@@ -45,6 +45,7 @@
         <h3 class="border">新着記事</h3>
         
         <% @posts.each do |post| %>
+        <% if post.is_deleted == false%>
         <div class="card mb-2 shadow p-3 mb-5 bg-body rounded">
           <strong><%= render 'public/users/name',user: post.user%></strong>
           <p class="mt-2"><%= post.body%></p>
@@ -61,6 +62,7 @@
             <%end%>
           </div>
         </div>
+        <% end %>
         <% end %>
       </div>  
     
