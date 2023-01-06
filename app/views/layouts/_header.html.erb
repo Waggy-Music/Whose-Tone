@@ -18,25 +18,29 @@
       <% if user_signed_in?%>
           <li class="navi-item">
           <%=link_to user_path(current_user), class:'nav-link text-light' do %>
-          <i class="fas fa-home"></i>マイページ
+          <!--<i class="fas fa-home"></i>-->
+          マイページ
           <%end%>
           </li>
           
           <li class="navi-item">
             <%=link_to users_path, class:'nav-link text-light' do %>
-            <i class="fas fa-users"></i>アーティスト
+            <!--<i class="fas fa-users"></i>-->
+            アーティスト
             <%end%>
           </li>
           
           <li class="navi-item">
             <%=link_to posts_path, class:'nav-link text-light' do %>
-            <i class="fas fa-book-open"></i>投稿一覧
+            <!--<i class="fas fa-book-open"></i>-->
+            投稿一覧
             <%end%>
           </li>
           
           <li class="navi-item">
             <%= link_to destroy_user_session_path, method: :delete, class:'nav-link text-light' do %>
-            <i class="fas fa-sign-out-alt"></i>ログアウト
+            <!--<i class="fas fa-sign-out-alt"></i>-->
+            ログアウト
             <%end%>
           </li>
           
@@ -50,22 +54,26 @@
       <%else%>
           <li class="navi-item">
             <%= link_to root_path, class:'nav-link text-light' do %>
-            <i class="fas fa-home"></i>Home
+            <!--<i class="fas fa-home"></i>-->
+            Home
             <%end%>
           </li>
           <li class="navi-item">
            <%= link_to about_path, class:'nav-link text-light' do %>
-           <i class="fas fa-link"></i>About
+           <!--<i class="fas fa-link"></i>-->
+           About
            <%end%>
           </li>
           <li class="navi-item">
            <%= link_to new_user_registration_path, class:'nav-link text-light' do %>
-           <i class="fas fa-user-plus"></i> 新規登録
+           <!--<i class="fas fa-user-plus"></i>-->
+           新規登録
            <%end%>
           </li>
           <li class="navi-item">
             <%= link_to new_user_session_path, class:'nav-link text-light' do %>
-            <i class="fas fa-sign-in-alt"></i>ログイン
+            <!--<i class="fas fa-sign-in-alt"></i>-->
+            ログイン
             <%end%>
           </li>
       <%end%>

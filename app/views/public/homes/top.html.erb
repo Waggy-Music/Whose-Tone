@@ -33,7 +33,7 @@
      <%= link_to "投稿を見る",posts_path,method: :get, class:"btn-block btn-dark "%>
      <%= link_to "アーティストを探す",users_path( role: 'artist'), class:"btn-block btn-dark"%>
      <%= link_to "店舗を探す",users_path( role: 'shop'), class:"btn-block btn-dark"%>
-     <%= link_to "新規投稿", new_post_path(@post),method: :get, class: 'btn-block btn-primary'%><br></br>
+     <%= link_to "新規投稿", new_post_path,method: :get, class: 'btn-block btn-primary'%><br></br>
      <%= link_to "マイページ", user_path(@user.id), class: 'btn-block btn-dark'%>
      <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: 'btn-block btn-danger'%>
      <%= link_to "このサイトについて",about_path,method: :get, class:"btn-block btn-info"%>
