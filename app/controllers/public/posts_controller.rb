@@ -13,7 +13,7 @@ class Public::PostsController < ApplicationController
       redirect_to post_path(@post.id)
     else
       flash[:danger]="保存に失敗しました。"
-      @post=Post.find(post_params)
+      # @post=Post.find(post_params)
       render:new
     end
   end

@@ -1,15 +1,30 @@
 <div class="container  my-5"style="text-align:center;">
-<h2>新規投稿</h2>
-
-<%= form_with model: @post,url: posts_path(@post), method: :post do |f|%>
-<h4>画像</h4>
-<p><%= f.file_field :images, multiple: true,accept: "image/*" ,id: "image"%></p>
-<div ><%=image_tag "",class:"img-square"%></div>
-<p>本文<%= f.text_area:body%></p>
-<p>タグ<%= f.text_field:tag%></p>
-<p><%= f.submit "投稿する", class:'btn btn-success'%></p>
-
-
+  <div class="row ">
+    
+    <div class="col-md-4">
+      
+    </div>
+   
+    <div class="col-md-4">
+      <h2>新規投稿</h2>
+        <div class="border  p-3 mx-2 rounded shadow">
+          <%= form_with model: @post,url: posts_path(@post), method: :post do |f|%>
+          <div class="mb-3">
+            <%= f.label :画像,class:"form-label" %>
+            <%= f.file_field :images, multiple: true,accept: "image/*" ,id: "image"%>
+            <%=image_tag "",class:"img-square"%>
+          </div>
+          
+          <div class="mb-3">
+              <%= f.label:本文,class:"form-label" %>
+              <%= f.text_area:body,class:"form-control" %>
+          </div>
+          <p>タグ<%= f.text_field:tag,class:"form-control" %></p>
+          <p><%= f.submit "投稿する", class:'btn btn-success'%></p>
+        </div>
+    </div>
+    
+  </div>
 </div>
 
 

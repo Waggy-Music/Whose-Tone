@@ -6,6 +6,8 @@ class Post < ApplicationRecord
   has_many :likes,dependent: :destroy
   has_many :comments,dependent: :destroy
   
+  validates:body, presence: true,length: { minimum: 1, maximum: 200 }
+  
   def liked_by?(user)
    likes.exists?(user_id: user.id)
   end
