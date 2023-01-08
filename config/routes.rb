@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'about' => 'public/homes#about'
   get '/admin' => 'admin/homes#top'
   
+  
   devise_for :users, skip: [:passwords], 
   controllers: {
   registrations: 'public/registrations',
@@ -24,10 +25,11 @@ Rails.application.routes.draw do
   patch 'users/:id/delete_status' => 'users#is_deleted'
   patch 'posts/:id/delete_status' => 'posts#is_deleted'
   end
-  get 'users/unsubscribe' => 'public/users#unsubscribe'
+  
+  get 'users/unsubscribe' => 'public/users#unsubscribe'#退会機能がmoduleの中にあるとエラーになる
   patch 'users/delete_status' => 'public/users#is_deleted'
   scope module: :public do #URLは変えたくない、ファイル構成だけ指定のパスにしたい場合はこれ
-
+  post '/users/guest_sign_in', to: 'users#guest_sign_in'
   resources :users, only:[:show,:edit,:update,:index]
   # get '/users/unsubscribe' => 'users#unsubscribe'
   # patch '/users/delete_status' => 'users#is_deleted'

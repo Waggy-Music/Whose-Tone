@@ -1,5 +1,16 @@
 class Public::UsersController < ApplicationController
   
+  def guest_sign_in
+    user = User.find_or_create_by!(email: 'g@guest') do |user|
+      user.password = guests
+      # user.skip_confirmation!  # Confirmable を使用している場合は必要
+      # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
+    end
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+  
+  
   def show
     @user=User.find(params[:id])
   end

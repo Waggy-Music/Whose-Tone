@@ -21,6 +21,7 @@
           <%else%>
           <strong class="text-danger"><%='退会済み' %></strong>
           <%end%>
+          <%= link_to "編集する",edit_admin_user_path(@user),class: "btn btn-success"%>
     </div>
   </div>
 </div>

@@ -13,7 +13,7 @@
       <!--できればバリテーションの小さい赤文字実装する-->
     <div class="col-md-4">
     <h2 class="bg-light"style="text-align:center;">ログイン</h2>
-      <div class="border  p-3 mx-2 rounded">
+      <div class="border  p-3 m-2 rounded">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="mb-3 mx-1" >
       
@@ -37,10 +37,10 @@
     </div>
       
     <div class="col-md-4 ">
-      <div class="card">
+      <div class="card mx-1">
       <p>ゲスト様ログイン</p>
-      <p>メールアドレス：g@guest</p>
-      <p>パスワード：guests</p>
+      
+      <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post,class:"btn btn-success mx-2 mb-2" %>
       </div>
     </div>
     
