@@ -9,18 +9,18 @@
       <h2>新規投稿</h2>
         <div class="border  p-3 mx-2 rounded shadow">
           <%= form_with model: @post,url: posts_path(@post), method: :post do |f|%>
-          <div class="mb-3">
+          <image class="mb-3 col-md-12">
             <%= f.label :画像,class:"form-label" %>
-            <%= f.file_field :images, multiple: true,accept: "image/*" ,id: "image"%>
-            <%=image_tag "",class:"img-square"%>
-          </div>
+            <%= f.file_field :images, multiple: true,accept: "image/*" ,id: "image",class:"btn btn-sm btn-secondary "%>
+            <div class="my-1"><%=image_tag "",class:"img-square w-75"%></div>
+          </image>
           
           <div class="mb-3">
               <%= f.label:本文,class:"form-label" %>
               <%= f.text_area:body,class:"form-control" %>
           </div>
-          <p>タグ<%= f.text_field:tag,class:"form-control" %></p>
-          <p><%= f.submit "投稿する", class:'btn btn-success'%></p>
+            <p>タグ<%= f.text_field:tag,class:"form-control" %></p>
+            <p><%= f.submit "投稿する", class:'btn btn-success'%></p>
         </div>
     </div>
     
