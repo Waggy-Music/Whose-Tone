@@ -10,35 +10,51 @@
       <h2 class="bg-light"style="text-align:center;">
       プロフィール編集
       </h2>
-      <div class="col-md mx-3 edit_artist border ">
-          <p>プロフィール画像<%=f.file_field:image%></p>
-          <p>名前<%= f.text_field:name,placeholder:"氏名※非表示になります" ,class:"form-control"%></p>
-          <p>ニックネーム<%= f.text_field:nick_name ,placeholder:"サイトで表示されます" ,class:"form-control"%></p>
-          <p>アカウント種別  <em class=text-secondary>※変更したい場合は別アカウントを新規作成</em></p>
-          <input class="form-control" type="text" placeholder=<%=@user.role_i18n%> disabled>
-          <p>プロフィール<%= f.text_area:profile ,placeholder:"自分の紹介、どんな活動をしているか等",class:"form-control" %></p>
-          <p>活動エリア<%= f.text_field:action_range,placeholder:"関東エリア、大阪全域" ,class:"form-control" %></p>
-          <p>活動スタイル<%= f.text_field:action_style,placeholder:"弾き方り、バンド"  ,class:"form-control"%></p>
-          <p>リンク<%= f.url_field:links ,placeholder:"ご自身のサイトURL",class:"form-control" %></p>
-          <p>タグ<%= f.text_field:tag ,placeholder:"ギター、ロック、ピアノ",class:"form-control" %></p>
+      <div class="edit_artist col-md  border ">
+            <p>プロフィール画像<%=f.file_field:image,id: "image"%></p>
+            <div class="my-1"><%=image_tag "",class:"img-square w-75"%></div>
+            <p>名前<%= f.text_field:name,placeholder:"氏名※非表示になります" ,class:"form-control"%></p>
+            <p>ニックネーム<%= f.text_field:nick_name ,placeholder:"サイトで表示されます" ,class:"form-control"%></p>
+            <div>アカウント種別  <em class=text-secondary>※変更したい場合は別アカウントを新規作成</em></div>
+            <input class="form-control" type="text" placeholder=<%=@user.role_i18n%> disabled>
+            <p>プロフィール<%= f.text_area:profile ,placeholder:"自分の紹介、どんな活動をしているか等",class:"form-control" %></p>
+            <p>活動エリア<%= f.text_field:action_range,placeholder:"関東エリア、大阪全域" ,class:"form-control" %></p>
+            <p>活動スタイル<%= f.text_field:action_style,placeholder:"弾き方り、バンド"  ,class:"form-control"%></p>
+            <p>リンク<%= f.url_field:links ,placeholder:"ご自身のサイトURL",class:"form-control" %></p>
+            <p>タグ<%= f.text_field:tag ,placeholder:"ギター、ロック、ピアノ",class:"form-control" %></p>
           <div class="mb-3">
             <%= f.submit"保存する",class: 'btn btn-success' %>
             <%=link_to"BACK",user_path, class: 'btn btn-secondary' %>
-            
           </div>
       </div>
         <% end %>
       <% else %>
         <%= render 'edit',user: @user%>
       <% end %>
-    </div>
     
+        <div class="col-md-3">
+
+        </div>
 
       
   
   </div>
 </div>
+<script>
+$(function() {
+    $('#image').on('change', function() {
+        var selectedFile = this.files[0];
+        var fileReader = new FileReader();
 
+        fileReader.onload = function(event) {
+            var loadedImageUri = event.target.result;
+             $('.img-square').attr('src', loadedImageUri);
+        };
+
+        fileReader.readAsDataURL(selectedFile);
+    });
+});
+</script>
 <!--  <div class="mb-3">-->
 <!--  <label for="exampleFormControlInput1" class="form-label">Email address</label>-->
 <!--  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">-->

@@ -5,13 +5,13 @@
       
     </div>
    
-    <div class="col-md-4">
+    <div class="col-md-4 mr-1">
       <h2>新規投稿</h2>
         <div class="border  p-3 mx-2 rounded shadow">
           <%= form_with model: @post,url: posts_path(@post), method: :post do |f|%>
-          <image class="mb-3 col-md-12">
+          <image class="mb-3">
             <%= f.label :画像,class:"form-label" %>
-            <%= f.file_field :images, multiple: true,accept: "image/*" ,id: "image",class:"btn btn-sm btn-secondary "%>
+            <%= f.file_field :images, multiple: true,accept: "image/*" ,id: "image",class:"btn btn-sm btn-secondary col-md-11"%>
             <div class="my-1"><%=image_tag "",class:"img-square w-75"%></div>
           </image>
           
