@@ -1,13 +1,13 @@
 <%= form_with model: user,method: :patch,multipart: true do |f| %>
     <% if user.listener? %>
-      <div class="edit_listener col-md  edit_artist border ">
+      <div class="edit_listener col-md border ">
         <p>プロフィール画像<%=f.file_field:image,id: "image",class:"btn btn-sm btn-secondary col-md-11"%></p>
         <div class="my-1"><%=image_tag "",class:"img-square w-50"%></div>
         <p>名前<%= f.text_field:name ,placeholder:"氏名※非表示になります" ,class:"form-control" %></p>
         <p>ニックネーム<%= f.text_field:nick_name ,placeholder:"サイトで表示されます" ,class:"form-control"%></p>
         <div>アカウント種別※変更したい場合は別アカウントを新規作成</div>
         <input class="form-control" type="text" placeholder=<%=@user.role_i18n%> disabled>
-        <p>プロフィール<%= f.text_area:profile,placeholder:"好きな音楽、よく行くライブハウス等"  ,class:"form-control" %></p>
+        <p>プロフィール<%= f.text_area:profile,placeholder:"好きな音楽、よく行くライブハウス等",class:"form-control" %></p>
         <p>リンク<%= f.text_field:links ,placeholder:"ご自身のSNSリンクなど" ,class:"form-control"  %></p>
         <p>タグ<%= f.text_field:tag  ,class:"form-control"%></p>
         <div class="mb-3">
@@ -18,34 +18,36 @@
     <% end %>
     
     <% if user.shop? %>
-      <div class="edit_shop">
-        <p>プロフィール画像<%=f.file_field:image%></p>
+      <div class="edit_shop col-md border ">
+        <p>プロフィール画像<%=f.file_field:image,id: "image",class:"btn btn-sm btn-secondary col-md-11"%></p>
         <div class="my-1"><%=image_tag "",class:"img-square w-75"%></div>
-        <p>名称<%= f.text_field:name %></p>
-        <p>アカウント種別<%=user.role %>※変更したい場合は別アカウントを新規作成</p>
-        <p>プロフィール<%= f.text_area:profile %></p>
-        <p>住所<%= f.text_field:address %></p>
-        <p>店舗スタイル<%= f.text_field:shop_style %></p>
-        <p>定休日<%= f.text_field:holidays %></p>
-        <p>リンク<%= f.text_field:links %></p>
-        <p>タグ<%= f.text_field:tag %></p>
+        <p>名称<%= f.text_field:name,class:"form-control" %></p>
+        <div>アカウント種別※変更したい場合は別アカウントを新規作成</div>
+        <input class="form-control" type="text" placeholder=<%=@user.role_i18n%> disabled>
+        <p>プロフィール<%= f.text_area:profile ,class:"form-control"  %></p>
+        <p>住所<%= f.text_field:address ,class:"form-control"  %></p>
+        <p>店舗スタイル<%= f.text_field:shop_style ,class:"form-control" %></p>
+        <p>定休日<%= f.text_field:holidays ,class:"form-control"  %></p>
+        <p>リンク<%= f.text_field:links ,class:"form-control"%></p>
+        <p>タグ<%= f.text_field:tag ,class:"form-control" %></p>
         <%= f.submit"保存する",class: 'btn btn-success' %>
         <%=link_to"BACK",user_path, class: 'btn btn-secondary' %>
 </div>
     <% end %>
     
     <% if user.maker? %>
-      <div class="edit_maker">
-        <p>プロフィール画像<%=f.file_field:image%></p>
+      <div class="edit_maker col-md border ">
+        <p>プロフィール画像<%=f.file_field:image,id: "image",class:"btn btn-sm btn-secondary col-md-11"%></p>
         <div class="my-1"><%=image_tag "",class:"img-square w-75"%></div>
-        <p>名称<%= f.text_field:name %></p>
-        <p>アカウント種別<%=user.role %>※変更したい場合は別アカウントを新規作成</p>
-        <p>プロフィール<%= f.text_area:profile %></p>
-        <p>住所<%= f.text_field:address %></p>
-        <p>店舗スタイル<%= f.text_field:shop_style %></p>
-        <p>定休日<%= f.text_field:holidays %></p>
-        <p>リンク<%= f.text_field:links %></p>
-        <p>タグ<%= f.text_field:tag %></p>
+        <p>名称<%= f.text_field:name ,class:"form-control"%></p>
+        <div>アカウント種別※変更したい場合は別アカウントを新規作成</div>
+        <input class="form-control" type="text" placeholder=<%=@user.role_i18n%> disabled>
+        <p>プロフィール<%= f.text_area:profile ,class:"form-control"%></p>
+        <p>住所<%= f.text_field:address ,class:"form-control"  %></p>
+        <p>店舗スタイル<%= f.text_field:shop_style ,class:"form-control" %></p>
+        <p>定休日<%= f.text_field:holidays ,class:"form-control" %></p>
+        <p>リンク<%= f.text_field:links ,class:"form-control"%></p>
+        <p>タグ<%= f.text_field:tag ,class:"form-control" %></p>
         <%= f.submit"保存する",class: 'btn btn-success' %>
         <%=link_to"BACK",user_path, class: 'btn btn-secondary' %>
 </div>
