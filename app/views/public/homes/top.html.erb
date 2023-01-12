@@ -52,9 +52,9 @@
           <!--.created_at.strftime('%Y/%m/%d')-->
           <%= render 'public/posts/image',post: post %>
           <div class="d-flex justify-content-around mt-1">
-            <div id="like_buttons_<%= post.id%>">
+              <div id="like_buttons_<%= post.id%>">
               <%= render 'public/likes/button',post: post%>
-            </div>
+          </div>
             <%= link_to "#{post.comments.count} コメント", post_path(post.id) %>
             <% if post.user ==current_user%>
             <%= link_to "編集する",edit_post_path(post.id)%>
