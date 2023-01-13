@@ -1,2 +1,24 @@
-<h1>Admin::Posts#show</h1>
-<p>Find me in app/views/admin/posts/show.html.erb</p>
+<div class="cotainer my-5 mx-1">
+  <div class="row">
+    <div class="col-md-4">
+    
+    </div>
+    <div class="col-md-4">
+      <div class="card mx-1 shadow p-3 mb-5 bg-body rounded">
+                <strong><%= render 'public/users/name',user: @post.user%></strong>
+                <p class="mt-2"><%= @post.body%></p>
+                <!--.created_at.strftime('%Y/%m/%d')-->
+                <%= render 'public/posts/image',post: @post %>
+                <div class="d-flex justify-content-around mt-1">
+                  <div id="like_buttons_<%= @post.id%>">
+                    <%= render 'public/likes/button',post: @post%>
+                  </div>
+                    <%= link_to "#{@post.comments.count} コメント", post_path(@post.id) %>
+                    <%# if post.user ==current_user%>
+                    
+                    <%#= link_to "削除する",post_path(post.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
+                  </div>
+                </div>
+                <%= link_to "一覧に戻る",admin_posts_path,class: "btn btn-success"%>
+      </div>
+    </div>

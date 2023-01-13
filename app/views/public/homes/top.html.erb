@@ -42,7 +42,7 @@
    </nav>
    
    <div class="col-md-4" style="text-align:center;">
-        <h3 class="border">新着記事</h3>
+        <h3 class="border mt-1">新着記事</h3>
         
         <% @posts.each do |post| %>
         <% if post.is_deleted == false%>
@@ -53,12 +53,16 @@
           <%= render 'public/posts/image',post: post %>
           <div class="d-flex justify-content-around mt-1">
               <div id="like_buttons_<%= post.id%>">
-              <%= render 'public/likes/button',post: post%>
-          </div>
-            <%= link_to "#{post.comments.count} コメント", post_path(post.id) %>
+                <%= render 'public/likes/button',post: post%>
+              </div>
+            <% if user_signed_in? %>
+              <%= link_to "#{post.comments.count} コメント", post_path(post.id) %>
+            <% else %>
+              <%= post.comments.count %>コメント
+            <% end %>
             <% if post.user ==current_user%>
-            <%= link_to "編集する",edit_post_path(post.id)%>
-            <%= link_to "削除する",post_path(post.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
+              <%= link_to "編集する",edit_post_path(post.id)%>
+              <%= link_to "削除する",post_path(post.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
             <%end%>
           </div>
         </div>
