@@ -2,7 +2,7 @@
     <table class="listener table table-bordered mt-2">
     <tr>
       <td class="table-secondary text-nowrap">ニックネーム</td>
-      <td><%= user.nick_name%></td>
+      <td><%= link_to user.nick_name ,admin_user_path(user) , method: :get %></td>
     </tr>
     <tr>
       <td class="table-secondary text-nowrap">アカウント種別</td>

@@ -1,28 +1,62 @@
-<div class="container-fluid"style="text-align:center;">
+<div class="container  my-5"style="text-align:center;">
   <div class="row">
-    
-          <div class="col-md-4">
-          </div>
-          <div class="col-md-4 m-5">
-                    <p>名前<%= @user.name %></p>
-                    <p>ニックネーム<%= @user.nick_name %></p>
-                    <p>ユーザー種別<%= @user.role%></p>
-                    <p>メールアドレス<%= @user.email%></p>
-                    <p>住所<%= @user.address %></p>
-                    <!--<p>プロフィール<%#= @user.profile %></p>-->
-                    <p>活動拠点<%= @user.action_range %></p>
-                    <p>活動スタイル<%= @user.action_style %></p>
-                    <p>リンク<%= @user.links %></p>
-                    <p>タグ<%= @user.tag %></p>
-                    <p>定休日<%= @user.holidays %></p>
-                    <p>店舗形態<%= @user.shop_style %></p>
-                    <p>ステータス<% if @user.is_deleted == false%></p>
-          <strong class="text-success"><%='有効' %></strong>
-          <%else%>
-          <strong class="text-danger"><%='退会済み' %></strong>
-          <%end%>
-          <%= link_to "編集する",edit_admin_user_path(@user),class: "btn btn-success"%>
+    <div class="col-md-2">
+      
     </div>
+    <div class="col-md-8">
+      <h2 class="table-secondary">マイページ</h2>
+      <image>
+          <% if @user.image.attached? %>
+            <%= image_tag @user.image, size: "100x100" %>
+          <% else %>
+            <%= image_tag 'no_image', size: "100x100" %>
+          <% end %>
+      </image>
+      <br>
+      <% if @user.artist? %>
+        <table class="table table-bordered mt-2 ">
+          <tr>
+            <td class="table-secondary text-nowrap">ニックネーム</td>
+            <td><%= @user.nick_name%></td>
+          </tr>
+          <tr>
+            <td class="table-secondary text-nowrap">アカウント種別</td>
+            <td><%= @user.role_i18n%></td>
+          </tr>
+          <tr>
+            <td class="table-secondary text-nowrap">プロフィール</td>
+            <td><%= @user.profile%></td>
+          </tr>
+          <tr>
+            <td class="table-secondary text-nowrap">活動エリア</td>
+            <td><%= @user.action_range%></td>
+          </tr>
+          <tr>
+            <td class="table-secondary text-nowrap">活動スタイル</td>
+            <td><%= @user.action_style%></td>
+          </tr>
+          <tr>
+            <td class="table-secondary">リンク</td>
+            <td><%= text_url_to_link((h(@user.links).html_safe)).html_safe %> </td>
+          </tr>
+          <tr>
+            <td class="table-secondary">タグ</td>
+            <td><%= @user.tag%></td>
+          </tr>
+
+  </table>
+      <% else %>
+      <%= render 'show',user: @user%>
+      <% end %>
+            <% if @user ==current_user%>
+            <td><%=link_to "編集", admin_edit_user_path, class: 'btn btn-success' %></td>
+            <%=link_to "退会する",admin_users_unsubscribe_path, class: 'btn btn-danger' %>
+            <%end%>
+            <td><%=link_to "一覧に戻る", admin_users_path, class: 'btn btn-warning'%></td>
+    </div>
+    <div class="col-md-2">
+      
+    </div>
+    
   </div>
 </div>
-
