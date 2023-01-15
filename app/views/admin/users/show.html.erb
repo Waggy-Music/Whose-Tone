@@ -43,6 +43,15 @@
             <td class="table-secondary">タグ</td>
             <td><%= @user.tag%></td>
           </tr>
+          <tr>
+            <td class="table-secondary">ステータス</td>
+            <td><% if @user.is_deleted == false%>
+              <strong class="text-success"><%='有効' %></strong>
+              <%else%>
+              <strong class="text-danger"><%='退会済み' %></strong>
+              <%end%>
+            <%=link_to"変更する",admin_user_path(@user.id), method: :patch,class: "btn btn-warning"%></td>
+          </tr>
 
   </table>
       <% else %>

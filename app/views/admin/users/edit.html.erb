@@ -21,7 +21,12 @@
           <p>活動スタイル<%= f.text_field:action_style,placeholder:"弾き方り、バンド"  ,class:"form-control"%></p>
           <p>リンク<%= f.url_field:links ,placeholder:"ご自身のサイトURL",class:"form-control" %></p>
           <p>タグ<%= f.text_field:tag ,placeholder:"ギター、ロック、ピアノ",class:"form-control" %></p>
-          <div class="mb-3">
+          <!--<p>ステータス-->
+          <!--<%#= f.label:is_deleted,"有効",value: false ,class:"btn-success"%>-->
+          <!--<%#= f.radio_button:is_deleted,false%>-->
+          <!--<%#= f.label:is_deleted,"退会",value: false ,class:"btn-danger"%>-->
+          <!--<%#= f.radio_button:is_deleted,true%></p>-->
+          <!--<div class="mb-3">-->
             <%= f.submit"保存する",class: 'btn btn-success' %>
             <%=link_to"BACK",admin_user_path, class: 'btn btn-secondary' %>
             
