@@ -11,7 +11,7 @@ class Admin::UsersController < ApplicationController
     else
     @user.update(is_deleted: false)
     flash[:notice] = "登録情報の変更が完了しました。"
-    redirect_to admin_users_path
+    redirect_to request.referer
     # flash[:danger] = "未入力項目があります"
     # @user=User.find(params[:id])
     # render :edit
