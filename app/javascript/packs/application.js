@@ -18,3 +18,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 //require('./preview') //追記したが未使用
+
+// $(function(){
+//   $('.card-img-overlay').fadeIn(700);
+// });

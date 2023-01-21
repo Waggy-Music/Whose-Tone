@@ -1,0 +1,104 @@
+  <% if user.listener? %>
+    <table class="listener table table-bordered mt-2">
+    <tr>
+      <td class="table-secondary text-nowrap">ニックネーム</td>
+      <td><%= user.nick_name %></td>
+    </tr>
+    <tr>
+      <td class="table-secondary text-nowrap">アカウント種別</td>
+      <td><%= user.role%></td>
+    </tr>
+    <tr>
+      <td class="table-secondary text-nowrap">プロフィール</td>
+      <td><%= user.profile%></td>
+    </tr>
+    <tr>
+      <td class="table-secondary">リンク</td>
+      <td><%= text_url_to_link((h(user.links).html_safe)).html_safe %></td>
+    </tr>
+    <tr>
+      <td class="table-secondary">タグ</td>
+      <td><%= user.tag%></td>
+    </tr>
+    
+  </table>
+  <% end %>
+  
+  <% if user.shop? %>
+   <table class="shop table table-bordered">
+    <tr>
+      <td class="table-secondary">名称</td>
+      <td><%= user.name%></td>
+    </tr>
+    <tr>
+      <td class="table-secondary text-nowrap">アカウント種別</td>
+      <td><%= user.role%></td>
+    </tr>
+    <tr>
+      <td class="table-secondary text-nowrap">プロフィール</td>
+      <td><%= user.profile%></td>
+    </tr>
+    <tr>
+      <td class="table-secondary">住所</td>
+      <td><%= user.address%></td>
+    </tr>
+    <tr>
+      <td class="table-secondary text-nowrap">店舗スタイル</td>
+      <td><%= user.shop_style%></td>
+    </tr>
+    <tr>
+      <td class="table-secondary">定休日</td>
+      <td><%= user.holidays%></td>
+    </tr>
+    <tr>
+      <td class="table-secondary">リンク</td>
+      <td><%= text_url_to_link((h(user.links).html_safe)).html_safe %></td>
+    </tr>
+    <tr>
+      <td class="table-secondary">タグ</td>
+      <td><%= user.tag%></td>
+    </tr>
+ 
+    
+  </table> 
+  <% end %>
+ 
+  <% if user.maker? %>
+    <table class="maker table table-bordered">
+    <tr>
+      <td class="table-secondary">名称</td>
+      <td><%= user.name%></td>
+    </tr>
+    <tr>
+      <td class="table-secondary text-nowrap">アカウント種別</td>
+      <td><%= user.role%></td>
+    </tr>
+    <tr>
+      <td class="table-secondary text-nowrap">プロフィール</td>
+      <td><%= user.profile%></td>
+    </tr>
+    <tr>
+      <td class="table-secondary">住所</td>
+      <td><%= user.address%></td>
+    </tr>
+    <tr>
+      <td class="table-secondary text-nowrap">店舗スタイル</td>
+      <td><%= user.shop_style%></td>
+    </tr>
+    <tr>
+      <td class="table-secondary">定休日</td>
+      <td><%= user.holidays%></td>
+    </tr>
+    <tr>
+      <td class="table-secondary">リンク</td>
+      <td><%= text_url_to_link((h(user.links).html_safe)).html_safe %></td>
+    </tr>
+    <tr>
+      <td class="table-secondary">タグ</td>
+      <td><%= user.tag%></td>
+    </tr>
+    
+    
+  </table>
+  <% end %>
+  
