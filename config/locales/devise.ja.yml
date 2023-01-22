@@ -25,13 +25,10 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
-    models:
-      user: ユーザー
-        # attributes:
-        #   email:
-        #     blank: "この項目は必須です"
-        #   password:
-        #     blank: "この項目は必須です"
+    errors:
+      models:
+        user:
+          blank: "が入力されていません。"
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
@@ -146,3 +143,4 @@ ja:
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+        

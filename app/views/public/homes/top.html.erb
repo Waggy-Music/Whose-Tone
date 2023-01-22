@@ -50,7 +50,7 @@
         <div class="card mb-2 shadow p-3 mb-5 bg-body rounded">
           <strong><%= render 'public/users/name',user: post.user%></strong>
           <p class="mt-2"><%= post.body%></p>
-          <!--.created_at.strftime('%Y/%m/%d')-->
+          <p class="text-secondary"><%= post.created_at.strftime('%Y/%m/%d')%></p>
           <%= render 'public/posts/image',post: post %>
           <div class="d-flex justify-content-around mt-1">
               <div id="like_buttons_<%= post.id%>">
