@@ -1,27 +1,28 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
     </div>
     
     
-    <div class="col-md-4">
+    <div class="col-md-6">
       <div style="text-align:center;">
         <p>投稿内容</p>
       
         <div class="card mb-2 shadow p-3 mb-5 bg-body rounded">
           <%= render 'image',post: @post%> 
            <p><%= @post.body %></p>
-           <p><%= @post.tag %></p>
-           <%= link_to "投稿一覧",posts_path,method: :get, class: "btn btn-primary" %>
-           <% if @post.user == current_user%>
-             <%= link_to "編集する",edit_post_path(@post.id),class: "btn btn-secondary"%>
-           <% end %>
-           <div class="comments">
-           <%= render 'public/comments/index' ,post: @post,comment: @comment%>
-           </div>
-           <%= render 'public/comments/comment' ,post: @post,comment: @comment%>
+           <p>タグ：<%= @post.tag %></p>
+           <div class="border mb-2">コメント一覧</div>
+             <% if @post.user == current_user%>
+               <%= link_to "編集する",edit_post_path(@post.id),class: "btn btn-secondary"%>
+             <% end %>
+             <div class="comments">
+               <%= render 'public/comments/index' ,post: @post,comment: @comment%>
+             </div>
+             <%= render 'public/comments/comment' ,post: @post,comment: @comment%>
+          </div>
         </div>
-        </div>
+        <%= link_to "投稿一覧へ",posts_path,method: :get, class: "btn btn-primary" %>
     </div>
   </div>
 </div>

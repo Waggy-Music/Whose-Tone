@@ -1,5 +1,7 @@
 class Public::UsersController < ApplicationController
   
+  before_action :is_matching_login_user,only: [:edit, :update]
+  
   def guest_sign_in
     user = User.find_or_create_by!(email: 'g@guest') do |user|
       user.password = guests
@@ -66,5 +68,13 @@ class Public::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name,:nick_name,:address,:profile,:action_range,:action_style,
     :links,:tag,:holidays,:shop_style,:role,:is_deleted,:image)
+  end
+  
+  def is_matching_login_user
+  user_id = params[:id].to_i
+  login_user_id = current_user.id
+  if(user_id!= login_user_id)
+    redirect_to user_path(current_user)
+  end
   end
 end

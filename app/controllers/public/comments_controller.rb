@@ -3,10 +3,17 @@ class Public::CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = current_user.comments.new(comment_params)
     @comment.post_id = @post.id
-    @comment.save
-    redirect_to post_path(@post.id)
-    @comment=Comment.all
-    @user=current_user
+    # if @comment == ""
+    
+    
+    if  @comment.save
+      redirect_to post_path(@post.id)
+      @comment=Comment.all
+      @user=current_user
+    else
+        flash[:warning]="コメントが未入力です"
+        redirect_to request.referer
+    end
   end
 
   def destroy
