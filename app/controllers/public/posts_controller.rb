@@ -12,7 +12,7 @@ class Public::PostsController < ApplicationController
       flash[:notice]="投稿が完了しました。"
       redirect_to post_path(@post.id)
     else
-      flash[:danger]="保存に失敗しました。"
+      flash[:danger]="本文は入力必須です"
       # @post=Post.find(post_params)
       render:new
     end
