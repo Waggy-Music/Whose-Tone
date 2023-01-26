@@ -9,6 +9,8 @@
         <p>投稿内容</p>
       
         <div class="card mb-2 shadow p-3 mb-5 bg-body rounded">
+        <strong><%= render 'public/users/name',user: @post.user%></strong>
+        <p class="text-secondary"><%= @post.created_at.strftime('%Y/%m/%d')%></p>
           <%= render 'image',post: @post%> 
            <p><%= @post.body %></p>
            <p>タグ：<%= @post.tag %></p>
@@ -22,7 +24,7 @@
              <%= render 'public/comments/comment' ,post: @post,comment: @comment%>
           </div>
         </div>
-        <%= link_to "投稿一覧へ",posts_path,method: :get, class: "btn btn-primary" %>
+        <%= link_to "投稿一覧へ",posts_path,method: :get, class: "btn btn-primary mb-3" %>
     </div>
   </div>
 </div>
