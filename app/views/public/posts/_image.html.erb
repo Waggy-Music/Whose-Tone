@@ -1,7 +1,9 @@
   
   <% if post.images.attached? %>
     <% post.images.each do |image| %>
-      <%= image_tag image.variant(resize: '500x500') %>
-      
+    
+      <%= link_to image, "data-lightbox" => image do %>
+        <%= image_tag image.variant(resize: '350x500') %>
+      <% end %>
     <% end %>
   <% end %>

@@ -13,11 +13,13 @@
       <% @users.each do |user|%>
       <% if user.is_deleted == false%>
       <div class="card pt-3 mb-3 shadow" >
-        <image class="card-img-top px-2">
-          <% if user.image.attached? %>
-            <%= image_tag user.image, size: "mx-auto" %>
-          <% else %>
-            <%= image_tag 'no_image', size: "mx-auto" %>
+        <image class="card-img-top">
+          <%= link_to user.image,"data-lightbox" => user.image do %>
+            <% if user.image.attached? %>
+              <%= image_tag user.image, size: "mx-auto" ,class:"col-12"%>
+            <% else %>
+              <%= image_tag 'no_image', size: "mx-auto" %>
+            <% end %>
           <% end %>
         </image>
         <div class="card-body">
