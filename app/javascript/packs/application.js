@@ -19,6 +19,6 @@ Turbolinks.start()
 ActiveStorage.start()
 //require('./preview') //追記したが未使用
 
-$(function(){
-  $('.top').fadeIn(700);
-});
+// $(function(){
+//   $('.top').fadeIn(700);
+// });
