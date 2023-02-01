@@ -1,0 +1,7 @@
+<%= link_to user.image,"data-lightbox" => user.image do %>
+  <% if user.image.attached? %>
+    <%= image_tag user.image, size: "mx-auto" ,class:"col-12"%>
+  <% else %>
+    <%= image_tag 'no_image', size: "mx-auto" %>
+  <% end %>
+<% end %>
