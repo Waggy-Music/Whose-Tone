@@ -2,7 +2,8 @@
         <%= link_to user.image, "data-lightbox" => user.image do %>
           <% if user.image.attached? %>
             <%= image_tag user.image, size: "100x100" %>
-          <% else %>
-            <%= image_tag 'no_image', size: "100x100" %>
           <% end %>
+          <%# if user.image== "" %>
+            <%#= image_tag 'no_image', size: "100x100" %>
+          <%# end %>
         <% end %>
