@@ -3,7 +3,9 @@
     <% post.images.each do |image| %>
     
       <%= link_to image, "data-lightbox" => image do %>
-        <%= image_tag image.variant(resize: '350x500') %>
+        <%#= image_tag image.variant(resize: '350x500') %>
+        <!--スマホサイズで枠からはみ出るため却下-->
+        <%= image_tag image, size: "mx-auto" ,class:"col-12"%>
       <% end %>
     <% end %>
   <% end %>
