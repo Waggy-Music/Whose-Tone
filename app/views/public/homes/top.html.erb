@@ -27,8 +27,10 @@
   <div class="row">
     <nav class="col-md-4 pt-4 alert-secondary navilist-expand-lg d-none d-sm-none d-md-block">
      <% unless user_signed_in?%>
-     <div><%= link_to "ログイン", new_user_session_path, class: 'btn btn-secondary btn-block' %></div>
-     <div><%= link_to "新規登録", new_user_registration_path, class: 'btn btn-success btn-block' %></div>
+     <div><%= link_to "ログイン", new_user_session_path, class: 'btn btn-secondary btn-block mb-2' %></div>
+     <div><%= link_to "新規登録", new_user_registration_path, class: 'btn btn-success btn-block mb-2' %></div>
+     <div><%= link_to "アーティストを探す",users_path( role: 'artist'), class:"btn btn-block btn-info mb-2"%></div>
+     <div><%= link_to "店舗を探す",users_path( role: 'shop'), class:"btn btn-block btn-primary mb-2"%></div>
      <% end %>
      <% if user_signed_in?%>
      <%= link_to "投稿を見る",posts_path,method: :get, class:"btn-block btn-dark "%>

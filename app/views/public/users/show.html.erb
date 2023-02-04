@@ -3,6 +3,7 @@
     <div class="col-md-2">
       
     </div>
+    
     <div class="col-md-8">
       <h2 class="table-secondary">マイページ</h2>
       <image>
@@ -42,13 +43,15 @@
 
   </table>
       <% else %>
-      <%= render 'show',user: @user%>
+        <%= render 'show',user: @user%>
       <% end %>
-            <% if @user ==current_user%>
-            <td><%=link_to "編集", edit_user_path, class: 'btn btn-success' %></td>
-            <%=link_to "退会する",users_unsubscribe_path, class: 'btn btn-danger' %>
-            <%end%>
-            <td><%=link_to "TOPに戻る", root_path, class: 'btn btn-primary'%></td>
+      
+      <% if @user ==current_user%>
+          <td><%=link_to "編集", edit_user_path, class: 'btn btn-success' %></td>
+          <%=link_to "退会する",users_unsubscribe_path, class: 'btn btn-danger' %>
+      <%end%>
+          <td><%=link_to "ユーザ一覧へ", users_path, class: 'btn btn-info'%></td>
+          <td><%=link_to "TOPに戻る", root_path, class: 'btn btn-primary'%></td>
     </div>
     <div class="col-md-2">
       
