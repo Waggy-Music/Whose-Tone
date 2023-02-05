@@ -11,17 +11,17 @@
       </image>
       <br>
       <% if @user.artist? %>
-        <table class="table table-bordered mt-2 ">
+        <table class="Table table-bordered mt-2 w-100 ">
           <tr>
             <td class="table-secondary text-nowrap">ニックネーム</td>
-            <td><%= @user.nick_name%></td>
+            <td class="tb"><%= @user.nick_name%></td>
           </tr>
           <tr>
             <td class="table-secondary text-nowrap">アカウント種別</td>
             <td><%= @user.role_i18n%></td>
           </tr>
           <tr>
-            <td class="table-secondary text-nowrap">プロフィール</td>
+            <td class="table-secondary">プロフィール</td>
             <td><%= @user.profile%></td>
           </tr>
           <tr>
@@ -40,18 +40,37 @@
             <td class="table-secondary">タグ</td>
             <td><%= @user.tag%></td>
           </tr>
-
-  </table>
+      </table>
+      <style>
+          /*--------
+           FORM
+          ----------*/
+          .Table{
+          }
+          .Table td{
+            padding:10px; },
+          .Table th{
+          }
+          @media only screen and (max-width:991px){
+          	.Table {
+          	}
+          	.Table th,
+          	.Table td{
+          		display: block;
+          	}
+          }
+      </style>
       <% else %>
         <%= render 'show',user: @user%>
       <% end %>
-      
-      <% if @user ==current_user%>
-          <td><%=link_to "編集", edit_user_path, class: 'btn btn-success' %></td>
-          <%=link_to "退会する",users_unsubscribe_path, class: 'btn btn-danger' %>
-      <%end%>
-          <td><%=link_to "ユーザ一覧へ", users_path, class: 'btn btn-info'%></td>
-          <td><%=link_to "TOPに戻る", root_path, class: 'btn btn-primary'%></td>
+      <div class="mt-3">
+        <% if @user ==current_user%>
+            <td><%=link_to "編集", edit_user_path, class: 'btn btn-success' %></td>
+            <%=link_to "退会する",users_unsubscribe_path, class: 'btn btn-danger' %>
+        <%end%>
+            <td><%=link_to "ユーザ一覧へ", users_path, class: 'btn btn-info'%></td>
+            <td><%=link_to "TOPに戻る", root_path, class: 'btn btn-primary'%></td>
+      </div>
     </div>
     <div class="col-md-2">
       
@@ -59,3 +78,4 @@
     
   </div>
 </div>
+
