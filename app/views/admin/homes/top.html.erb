@@ -10,3 +10,68 @@
    <%= link_to "投稿一覧",admin_informations_path,method: :get, class:"btn btn-primary"%>
    <% end %>
  </div>
+ 
+ <div class="cotainer m-2">
+  <div class="row">
+    <div class="col-md-2">
+      
+    </div>
+
+    <div class="col-md-8">
+        <h2>投稿一覧</h2>
+
+        
+        <table class="table">
+          <tr class="table-secondary text-nowrap">
+            <th>投稿日時</th>
+            <th>ユーザー名</th>
+            <th>投稿内容</th>
+            <th>タグ</th>
+            <th>投稿ステータス</th>
+            <th></th>
+          </tr> 
+            <% @posts.each do |post| %>
+          <tr>
+              <td class="text-secondary"><%= post.created_at.strftime('%Y/%m/%d/%R')%></td>
+              <td><%=render 'public/users/name',user: post.user%></td>
+              <td><%=link_to post.body ,admin_post_path(post.id) %></td>
+              <td><%= post.tag%></td>
+              <td><% if post.is_deleted == false%>
+          <strong class="text-success"><%='有効' %></strong>
+          <%else%>
+          <strong class="text-danger"><%='削除済み' %></strong>
+          <%end%></td>
+          <td><%=link_to"変更する",admin_post_path(post.id), method: :patch,class: "btn btn-warning text-nowrap"%></td>
+          </tr>
+        
+        <%#= render 'public/posts/image',post: post%>
+        <%#= link_to "編集する",edit_post_path(post.id)%>
+        <% end %>
+        
+        </table>
+        <h2>User一覧</h2>
+        <table class="table">
+            <tr class="alert-secondary">
+              <th>name</th>
+              <th>nickname</th>
+              <th>ユーザー種別</th>
+              <th>status</th>
+              <th></th>
+            </tr>
+            <% @users.each do |user| %>
+            <tr>
+              <td><%= link_to user.name,admin_user_path(user), method: :get %></td>
+              <td><%= link_to user.nick_name ,admin_user_path(user) , method: :get %></td>
+              <td><%= user.role_i18n%></td>
+              <td><% if user.is_deleted == false%></p>
+                  <strong class="text-success"><%='有効' %></strong>
+                  <%else%>
+                  <strong class="text-danger"><%='退会済み' %></strong>
+                  <%end%></td>
+                  <td><%=link_to"変更する",admin_user_path(user.id), method: :patch,class: "btn btn-warning"%></td>
+            </tr>
+            <%end%>
+        </table>
+        
+   </div>
+</div>
