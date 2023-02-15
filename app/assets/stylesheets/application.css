@@ -18,8 +18,19 @@
   flex-wrap :wrap;
 }
 /*.top{*/
-/*  display:none;*/
+    /*display:none;*/
+    /*2回動いてしまう。*/
+/*  animation-name:fadeInAnime;*/
+/*  animation-duration:1s;*/
+/*  animation-fill-mode:forwards;*/
+/*  opacity:0;*/
+/*  }*/
+/*  @keyframes fadeInAnime{*/
+/*    from {*/
+/*      opacity: 0;*/
+/*    }*/
   
-  /*height:300px;*/
-  /*width:200px;*/
+/*    to {*/
+/*      opacity: 1;*/
+/*    }*/
 /*}*/
