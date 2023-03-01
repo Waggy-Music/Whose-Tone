@@ -9,12 +9,13 @@
       
     </div>
       
-      <!--<%#= render "public/shared/links" %>　自動生成-->
+      <!--<%#= render "public/shared/links" %>自動生成-->
       <!--できればバリテーションの小さい赤文字実装する-->
     <div class="col-md-4">
     <h2 class="bg-light"style="text-align:center;">ログイン</h2>
       <div class="border  p-3 m-2 rounded">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= render 'devise/shared/error_messages', model: f.object %>
         <div class="mb-3 mx-1" >
       
           <%= f.label :email,"メールアドレス",class:"form-label" %><br />
