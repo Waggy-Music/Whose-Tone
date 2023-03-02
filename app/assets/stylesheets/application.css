@@ -17,6 +17,15 @@
 .d-flex{
   flex-wrap :wrap;
 }
+
+/*input部分で枠を赤くしようとしたが失敗*/
+/*.field_with_errors {*/
+/*  display: contents;*/
+  /*input {*/
+  /*  @extend .is-invalid;*/
+  /*}*/
+/*}*/
+
 /*.top{*/
     /*display:none;*/
     /*2回動いてしまう。*/

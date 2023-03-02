@@ -26,7 +26,7 @@ class Public::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   
-   protected
+  protected
   # 退会しているかを判断するメソッド
     def user_state
     ##入力されたemailからアカウントを1件取得
