@@ -14,7 +14,7 @@ class Public::PostsController < ApplicationController
     else
       flash.now[:danger]="本文は入力必須です"
       # @post=Post.find(post_params)
-      render:new
+      render :new
     end
   end
   

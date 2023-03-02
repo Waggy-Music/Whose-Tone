@@ -15,7 +15,7 @@
     <h2 class="bg-light"style="text-align:center;">ログイン</h2>
       <div class="border  p-3 m-2 rounded">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <%= render 'devise/shared/error_messages', model: f.object %>
+        <%= error_messages! %>
         <div class="mb-3 mx-1" >
       
           <%= f.label :email,"メールアドレス",class:"form-label" %><br />
