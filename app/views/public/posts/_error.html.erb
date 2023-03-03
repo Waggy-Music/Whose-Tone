@@ -1,0 +1,5 @@
+      <% if post.errors.any?%>
+      <% post.errors.full_messages.each do |message|%>
+      <li class="text-danger"><%= message %></li>
+      <% end %>
+      <% end %>

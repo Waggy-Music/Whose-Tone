@@ -6,7 +6,8 @@ class Post < ApplicationRecord
   has_many :likes,dependent: :destroy
   has_many :comments,dependent: :destroy
   
-  validates:body, presence: true,length: { minimum: 1, maximum: 200 }
+  validates:body, presence: true
+  # ,length: { minimum: 1, maximum: 200 }　文字がないバリテーションだけで良いと思ったのでコメントアウト
   
   def liked_by?(user)
    likes.exists?(user_id: user.id)

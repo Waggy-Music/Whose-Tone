@@ -6,11 +6,7 @@
     </div>
    
     <div class="col-md-4 mr-1">
-      <% if @post.errors.any?%>
-      <% @post.errors.full_messages.each do |message|%>
-      <li class="alert-danger"><%= message %></li>
-      <% end %>
-      <% end %>
+
       <h2>新規投稿</h2>
         <div class="border p-3 mx-2 rounded shadow">
           <%= form_with model: @post,url: posts_path(@post), method: :post do |f|%>
@@ -23,7 +19,7 @@
           <div class="mb-3">
               <%= f.label:本文,class:"form-label" %>
               <%= f.text_area:body,class:"form-control" %>
-              
+              <%= render 'error', post: @post%>
           </div>
             <p>タグ<%= f.text_field:tag,class:"form-control" %></p>
             <!--,placeholder:"任意"-->
