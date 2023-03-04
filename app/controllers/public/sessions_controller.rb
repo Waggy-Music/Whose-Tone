@@ -25,6 +25,24 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  # 下記から追加してます
+    # def new
+    #   if @user.email == ""
+    #     flash[:warning] = "メールアドレスを入力してください"
+    #     redirect_to user_session_path
+    #   end
+    # end
+    
+    # def create
+    #   user = User.find_by(email: params[:email])
+    #   if user && user.authenticate(params[:password])
+    #     session[:user_id] = user.id
+    #     redirect_to root_path, notice: 'ログインしました'
+    #   else
+    #     flash.now[:alert] = 'メールアドレスまたはパスワードが違います'
+    #     render 'new'
+    #   end
+    # end
   
   protected
   # 退会しているかを判断するメソッド
